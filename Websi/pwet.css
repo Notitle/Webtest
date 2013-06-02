@@ -1,0 +1,94 @@
+body{
+    background-color: #C0C0C0;
+    text-align:center;
+    background-image: url('img/p6.png');
+    font-family:Verdana;
+    
+}
+
+.icone{
+    position:absolute;
+    top: 25%;
+    
+}
+.icones{
+    display: inline-block;
+    position:absolute;
+    left:20%;
+    z-index: 5000;
+    top:20%;
+}
+
+.button {
+    position: absolute;
+    height: 60px;
+    line-height: 60px;
+    overflow: hidden;
+    width:100px;
+
+    top: 50%;
+    margin-top: -30px;
+    left: 50%;
+    margin-left: -50px;
+
+}
+
+.label1,.label2 {
+    display: block;
+    height: 100%;
+    position: relative;
+    top: 0%;
+    transition: top 0.50s;
+    width: 100%;
+}
+#footer{
+
+    color:white;
+    height: 20px;
+    /*text-align: center;*/
+    font-size:10px;
+    font-family:Verdana;
+    padding-top: 10px;
+    width: 100%;
+    position:fixed;
+    left: 0px;
+    bottom: 0px;
+    background: #545454; /* Old browsers */
+    background: -moz-linear-gradient(top,  #545454 0%, #0e0e0e 78%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#545454), color-stop(78%,#0e0e0e)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  #545454 0%,#0e0e0e 78%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #545454 0%,#0e0e0e 78%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #545454 0%,#0e0e0e 78%); /* IE10+ */
+    background: linear-gradient(to bottom,  #545454 0%,#0e0e0e 78%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#545454', endColorstr='#0e0e0e',GradientType=0 ); /* IE6-9 */
+    border-top: 2px solid white;
+
+}
+
+.canivas{
+    position:fixed;
+    left:0px;
+    top:0px
+}
+
+#transi{
+    position: fixed;
+    left:0px;
+    height:1000px;
+    width: 0px;
+    background-color: white;
+}
+
+#pres{
+    position : absolute;
+    width : 200px;
+    height:200px;
+    background-color: white;
+    font-size: 10pt;
+    left:50%
+}
+#menu2{
+    position : absolute;
+    left:50px;
+    top:35%;
+}
