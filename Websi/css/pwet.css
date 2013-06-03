@@ -1,9 +1,24 @@
+@font-face
+{
+font-family: Prime_Regular;
+src: url(Prime_Regular.otf);
+}
+@font-face
+{
+font-family: Prime_Light;
+src: url(Prime_Light.otf);
+}
 body{
     background-color: #C0C0C0;
     text-align:center;
-    background-image: url('img/p6.png');
-    font-family:Verdana;
-    
+    background-image: url('../img/p7.png');
+    background-repeat:repeat;
+    font-family:Prime_Light;
+    font-size: 12pt;
+}
+
+h3{
+     font-family:Prime_Regular;
 }
 
 .icone{
@@ -71,14 +86,6 @@ body{
     top:0px
 }
 
-#transi{
-    position: fixed;
-    left:0px;
-    height:1000px;
-    width: 0px;
-    background-color: white;
-}
-
 #pres{
     position : absolute;
     width : 200px;
@@ -92,3 +99,13 @@ body{
     left:50px;
     top:35%;
 }
+
+
+.transi{
+    position: fixed;
+    left:0px;
+    height:1000px;
+    width: 0px;
+    background-color: white;
+}
+

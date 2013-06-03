@@ -13,6 +13,8 @@ $(document).ready(function() {
     var act = 0;
     var timeout;
     var cpt = 0;
+    
+    
 
     for (var j = 1; j < 5; j++) {
         var boxWIDTH = 100;
@@ -77,7 +79,7 @@ $(document).ready(function() {
         "top": "50%"
     });
 
-    $('#Ico1,#Ico2,#Ico3,#Ico4').hide();
+    $('#Ico1,#Ico2,#Ico3,#Ico4,#imache11,#imache22,#imache33,#imache44').hide();
 
     $("#Circ1").hover(function() {
         link = "Me & Myself";
@@ -95,30 +97,42 @@ $(document).ready(function() {
     });
     $("#Circ2").hover(function() {
         link = "Contact";
-        $("#Ico2").fadeIn();
         act = 2;
         Switch();
         Rename();
+        $("#Ico2").fadeIn();
+        $("#imache22").fadeIn();
+        $("#imache2").fadeOut();
     }, function() {
         $("#Ico2").fadeOut();
+        $("#imache22").fadeOut();
+        $("#imache2").fadeIn();
     });
     $("#Circ3").hover(function() {
         link = "Traveaux";
         act = 3;
-        $("#Ico3").fadeIn();
         Switch();
         Rename();
+        $("#Ico3").fadeIn();
+        $("#imache33").fadeIn();
+        $("#imache3").fadeOut();
     }, function() {
         $("#Ico3").fadeOut();
+        $("#imache33").fadeOut();
+        $("#imache3").fadeIn();
     });
     $("#Circ4").hover(function() {
         link = "CV";
         act = 4;
-        $("#Ico4").fadeIn();
         Switch();
         Rename();
+        $("#Ico4").fadeIn();
+        $("#imache44").fadeIn();
+        $("#imache4").fadeOut();
     }, function() {
         $("#Ico4").fadeOut();
+        $("#imache44").fadeOut();
+        $("#imache4").fadeIn();
     });
 
 
@@ -227,7 +241,7 @@ function createTimedLink(element, callback, timeout){
 
 function AniTrans(element) { 
 /* Block of code, with no 'return false'. */
-    $("#transi").css({
+    $(".transi").css({
                 "z-index": "9999",
                 "transition": "width 0.5s",
                 "-webkit-transition": "width 0.5s",
