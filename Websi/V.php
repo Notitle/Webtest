@@ -46,7 +46,8 @@ function menu() {
 function create() {
     for ($i = 1; $i < 5; $i++) {
         echo "<div id=Circ" . $i . ">";
-        echo "<img class='icones' src='img/IM" . $i . ".png' alt='pwet'/>";
+        echo "<img class='icones' id='imache".$i."' src='img/IM" . $i . ".png' alt='pwet'/>";
+        echo "<img class='icones' id='imache".$i."".$i."' src='img/IM" . $i . "" . $i . ".png' alt='pwet' />";
         echo "<div id=Ico" . $i . ">";
         echo "</div>";
         echo "</div>";

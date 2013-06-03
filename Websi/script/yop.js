@@ -85,9 +85,13 @@ $(document).ready(function() {
         Switch();
         Rename();
         $("#Ico1").fadeIn();
+        $("#imache11").fadeIn();
+        $("#imache1").fadeOut();
 
     }, function() {
         $("#Ico1").fadeOut();
+        $("#imache11").fadeOut();
+        $("#imache1").fadeIn();
     });
     $("#Circ2").hover(function() {
         link = "Contact";
