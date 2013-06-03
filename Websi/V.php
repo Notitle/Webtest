@@ -21,9 +21,9 @@ function head() {
     echo "<meta property='fb:admins' content='598636367' />";
     
     echo "<link rel='icon' href='http://???/images/favicon.ico' type='image/x-icon' />";
-    echo "<link rel='stylesheet' media='screen' href='pwet.css' type='text/css' />";
-    echo "<script src='jquery-1.9.1.js'></script>";
-    echo "<script src='yop.js'></script>";
+    echo "<link rel='stylesheet' media='screen' href='css/pwet.css' type='text/css' />";
+    echo "<script src='script/jquery-1.9.1.js'></script>";
+    echo "<script src='script/yop.js'></script>";
     echo "</head>";
     echo "<body>";
 }
@@ -54,8 +54,11 @@ function create() {
 
 function labels() {
     echo "<div class='button'>";
-    echo "<span id='One' class='label1'></span>";
-    echo "<span id='Two' class='label2'></span>";
+    echo "<span id='One' class='label1'><a href='?action=1'>Me</a></span>";
+    echo "<span id='Two' class='label2'><a href='?action=1'>cv</a></span>";
+    echo "<span id='Three' class='label3'><a href='?action=1'>cont</a></span>";
+    echo "<span id='Four' class='label4'><a href='?action=1'>trav</a></span>";
+    
     echo "</div>";
 }
 
