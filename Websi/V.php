@@ -26,6 +26,7 @@ function head() {
     echo "<script src='script/yop.js'></script>";
     echo "</head>";
     echo "<body>";
+    echo "<div id='transi'></div>";
 }
 
 function foot() {
@@ -54,11 +55,8 @@ function create() {
 
 function labels() {
     echo "<div class='button'>";
-    echo "<span id='One' class='label1'><a href='?action=1'>Me</a></span>";
-    echo "<span id='Two' class='label2'><a href='?action=1'>cv</a></span>";
-    echo "<span id='Three' class='label3'><a href='?action=1'>cont</a></span>";
-    echo "<span id='Four' class='label4'><a href='?action=1'>trav</a></span>";
-    
+    echo "<span id='One' class='label1'></span>";
+    echo "<span id='Two' class='label2'></span>";
     echo "</div>";
 }
 
@@ -79,8 +77,8 @@ function introduce(){
 }
 function menu2(){
     echo "<div id='menu2'>";
-    echo "<a href='?action=1'><img src='img/IM1.png' alt='Me'/></a><br/><br/>";
-    echo "<a href='?action=2'><img src='img/IM2.png' alt='Contact'/></a><br/><br/>";
+    echo "<a class='pwettt' href='?action=1'><img src='img/IM1.png' alt='Me'/></a><br/><br/>";
+    echo "<a class='pwettt' href='?action=2'><img src='img/IM2.png' alt='Contact'/></a><br/><br/>";
     echo "<a href='?action=3'><img src='img/IM3.png' alt='Traveaux'/></a><br/><br/>";
     echo "<a href='?action=4'><img src='img/IM4.png' alt='CV'/></a>";
     echo "</div>";

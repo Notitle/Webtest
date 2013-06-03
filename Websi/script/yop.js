@@ -126,11 +126,11 @@ $(document).ready(function() {
                 "top": "+100%"});
             $(".label2").css({
                 "top": "-100%"});
-            $(".label2").html("<a class='links' href='?action=" + act + "'>" + link + "</a>");
+            $(".label2").html("<a onclick='return createTimedLink(this, AniTrans, 2000);' class='links' href='?action=" + act + "'>" + link + "</a>");
         } else {
             $(".label1").css({
                 "top": "+0%"});
-            $(".label1").html("<a class='links' href='?action=" + act + "'>" + link + "</a>");
+            $(".label1").html("<a onclick='return createTimedLink(this, AniTrans, 2000);' class='links' href='?action=" + act + "'>" + link + "</a>");
             $(".label2").css({
                 "top": "-0%"});
 
@@ -211,3 +211,25 @@ $("a").click(function(e) {
         }, 900);  });
 
 });
+//
+//http://jsfiddle.net/gaby/mdkjX/2/
+
+
+
+function createTimedLink(element, callback, timeout){
+  setTimeout( function(){callback(element);}, timeout);
+  return false;
+}
+
+function AniTrans(element) { 
+/* Block of code, with no 'return false'. */
+    $("#transi").css({
+                "z-index": "9999",
+                "transition": "width 0.5s",
+                "-webkit-transition": "width 0.5s",
+                "width": window.innerWidth
+            });
+    
+   setTimeout('window.location = element.href', 5000) /* 5 seconds */
+ 
+ }
