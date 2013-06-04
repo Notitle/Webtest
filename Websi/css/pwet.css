@@ -1,12 +1,12 @@
 @font-face
 {
-font-family: Prime_Regular;
-src: url(Prime_Regular.otf);
+    font-family: Prime_Regular;
+    src: url(Prime_Regular.otf);
 }
 @font-face
 {
-font-family: Prime_Light;
-src: url(Prime_Light.otf);
+    font-family: Prime_Light;
+    src: url(Prime_Light.otf);
 }
 body{
     background-color: #C0C0C0;
@@ -18,13 +18,13 @@ body{
 }
 
 h3{
-     font-family:Prime_Regular;
+    font-family:Prime_Regular;
 }
 
 .icone{
     position:absolute;
     top: 25%;
-    
+
 }
 .icones{
     display: inline-block;
@@ -101,11 +101,36 @@ h3{
 }
 
 
-.transi{
+#trans{
     position: fixed;
     left:0px;
     height:1000px;
     width: 0px;
     background-color: white;
+    z-index: 9999;
 }
+
+.animat{
+    animation: Wswitch 1.5s;
+    -webkit-animation: Wswitch 1.5s; 
+}
+
+@keyframes Wswitch{
+    0%   {
+        width: 0px;
+    }
+
+    50%  {
+         width: 100%;
+    }
+    100% {
+        width: 0px;
+    }
+}
+
+@-webkit-keyframes Wswitch{
+0%   {width: 0px;}
+50%  {width: 100%;}
+100% {width: 0px;}
+} 
 

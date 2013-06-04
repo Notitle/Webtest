@@ -3,8 +3,6 @@ $(document).ready(function() {
     window.onresize = canovas;
     window.onload = canovas;
 
-
-
     var tabCOL = new Array();
     tabCOL[0] = "";
     var borderWIDTH = 10;
@@ -13,8 +11,6 @@ $(document).ready(function() {
     var act = 0;
     var timeout;
     var cpt = 0;
-    
-    
 
     for (var j = 1; j < 5; j++) {
         var boxWIDTH = 100;
@@ -144,14 +140,13 @@ $(document).ready(function() {
                 "top": "+100%"});
             $(".label2").css({
                 "top": "-100%"});
-            $(".label2").html("<a onclick='return createTimedLink(this, AniTrans, 2000);' class='links' href='?action=" + act + "'>" + link + "</a>");
+            $(".label2").html("<a onclick='return createTimedLink(this, AniTrans, 500);' class='links' href='?action=" + act + "'>" + link + "</a>");
         } else {
             $(".label1").css({
                 "top": "+0%"});
-            $(".label1").html("<a onclick='return createTimedLink(this, AniTrans, 2000);' class='links' href='?action=" + act + "'>" + link + "</a>");
+            $(".label1").html("<a onclick='return createTimedLink(this, AniTrans, 500);' class='links' href='?action=" + act + "'>" + link + "</a>");
             $(".label2").css({
                 "top": "-0%"});
-
         }
     }
 
@@ -179,60 +174,34 @@ $(document).ready(function() {
         canvas.className = "canivas";
         canvas.width = CanWidth;
         canvas.height = CanHeight;
+        context.fillStyle = "#ffffff";
         
-        context.fillStyle = "#FFFFFF";
         context.moveTo(0, 0);
         context.lineTo(0, 200);
         context.lineTo(CanWidth, 150);
         context.lineTo(CanWidth, 0);
         context.closePath();
-        context.strokeStyle = '#ffffff';
-        context.stroke();
-        context.fill();
-
+        
         context.moveTo(0, CanHeight);
         context.lineTo(0, CanHeight - 150);
         context.lineTo(CanWidth, CanHeight - 200);
         context.lineTo(CanWidth, CanHeight);
         context.closePath();
-        context.strokeStyle = '#ffffff';
-        context.stroke();
         context.fill();
         console.log(window.outerWidth);
     }
-
-
-
-
-
-
-$("a").click(function(e) {
-        e.preventDefault();
-        timeout = setTimeout(function() {
-            $("#transi").css({
-                "z-index": "9999",
-                "transition": "width 0.5s",
-                "-webkit-transition": "width 0.5s",
-                "width": window.innerWidth
-            });
-        }, 500);
-    },
-            function() {
-
-            timeout = setTimeout(function() {
-            $("#transi").css({
-                "z-index": "9999",
-                "transition": "width 0.5s",
-                "-webkit-transition": "width 0.5s",
-                "width": 0
-            });
-        }, 900);  });
+    
+    $("a").click(function(event){
+        event.preventDefault();
+        var t = $(this);
+        $('#trans').addClass('animat');
+        var dest = t.attr('href');
+        if (typeof(dest) !== "undefined" && dest !== "") {
+            setTimeout(function(){window.location.href = dest;}, 700);
+        }
+    });
 
 });
-//
-//http://jsfiddle.net/gaby/mdkjX/2/
-
-
 
 function createTimedLink(element, callback, timeout){
   setTimeout( function(){callback(element);}, timeout);
@@ -240,14 +209,10 @@ function createTimedLink(element, callback, timeout){
 }
 
 function AniTrans(element) { 
-/* Block of code, with no 'return false'. */
-    $(".transi").css({
-                "z-index": "9999",
-                "transition": "width 0.5s",
-                "-webkit-transition": "width 0.5s",
-                "width": window.innerWidth
-            });
-    
-   setTimeout('window.location = element.href', 5000) /* 5 seconds */
+    $('#trans').addClass('animat');
+    element.preventDefault();
+   window.location = element.href; /* 5 seconds */
+   //ELEMENT
  
  }
+

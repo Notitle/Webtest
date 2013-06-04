@@ -26,7 +26,7 @@ function head() {
     echo "<script src='script/yop.js'></script>";
     echo "</head>";
     echo "<body>";
-    echo "<div id='trans' class='transi'></div>";
+    echo "<div id='trans'></div>";
 }
 
 function foot() {
