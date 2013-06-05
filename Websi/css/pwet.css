@@ -120,17 +120,33 @@ h3{
         width: 0px;
     }
 
-    50%  {
+    100%  {
          width: 100%;
-    }
-    100% {
-        width: 0px;
     }
 }
 
 @-webkit-keyframes Wswitch{
 0%   {width: 0px;}
-50%  {width: 100%;}
+100%  {width: 100%;}
+} 
+
+.animat2{
+    animation: Wswitch2 1.5s;
+    -webkit-animation: Wswitch2 1.5s; 
+}
+
+@keyframes Wswitch2{
+    0%   {
+        width: 100%;
+    }
+
+    100% {
+        width: 0px;
+    }
+}
+
+@-webkit-keyframes Wswitch2{
+0%   {width: 100%;}
 100% {width: 0px;}
 } 
 

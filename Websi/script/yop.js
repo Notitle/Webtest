@@ -3,14 +3,16 @@ $(document).ready(function() {
     window.onresize = canovas;
     window.onload = canovas;
 
+    console.log()
+
     var tabCOL = new Array();
     tabCOL[0] = "";
     var borderWIDTH = 10;
     var miniborderWIDTH = 5;
     var link = "";
     var act = 0;
-    var timeout;
     var cpt = 0;
+    
 
     for (var j = 1; j < 5; j++) {
         var boxWIDTH = 100;
@@ -134,22 +136,44 @@ $(document).ready(function() {
 
     function Switch() {
         cpt = cpt + 1;
-        console.log(cpt);
         if (cpt % 2 !== 0) {
             $(".label1").css({
                 "top": "+100%"});
             $(".label2").css({
                 "top": "-100%"});
-            $(".label2").html("<a onclick='return createTimedLink(this, AniTrans, 500);' class='links' href='?action=" + act + "'>" + link + "</a>");
+            $(".label2").html("<a onclick='return createTimedLink(this, AniTrans, 900);' href='?action=" + act + "'>" + link + "</a>");
         } else {
             $(".label1").css({
                 "top": "+0%"});
-            $(".label1").html("<a onclick='return createTimedLink(this, AniTrans, 500);' class='links' href='?action=" + act + "'>" + link + "</a>");
+            $(".label1").html("<a onclick='return createTimedLink(this, AniTrans, 900);' href='?action=" + act + "'>" + link + "</a>");
             $(".label2").css({
                 "top": "-0%"});
         }
     }
+//////////////////////////////////////////////////////////
+////////////////////
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//////////////////////////////////////
     function Rename() {
 
         if (cpt % 2 !== 0) {
@@ -188,31 +212,32 @@ $(document).ready(function() {
         context.lineTo(CanWidth, CanHeight);
         context.closePath();
         context.fill();
-        console.log(window.outerWidth);
+        
+        open();
     }
-    
-    $("a").click(function(event){
-        event.preventDefault();
-        var t = $(this);
-        $('#trans').addClass('animat');
-        var dest = t.attr('href');
-        if (typeof(dest) !== "undefined" && dest !== "") {
-            setTimeout(function(){window.location.href = dest;}, 700);
-        }
-    });
 
 });
 
 function createTimedLink(element, callback, timeout){
+    console.log(element);
   setTimeout( function(){callback(element);}, timeout);
   return false;
 }
 
-function AniTrans(element) { 
-    $('#trans').addClass('animat');
-    element.preventDefault();
-   window.location = element.href; /* 5 seconds */
-   //ELEMENT
- 
+function AniTrans() { 
+  
+        $('#trans').toggleClass("animat2",false);
+        $('#trans').addClass('animat');
+        
+        var dest = $("a").attr('href');
+        if (typeof(dest) !== "undefined" && dest !== "") {
+            
+            setTimeout(function(){window.location.href = dest;}, 1200);
+        }
+        
  }
 
+function open(){
+    $("#trans").addClass('animat2');
+    
+}

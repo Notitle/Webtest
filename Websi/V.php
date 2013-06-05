@@ -47,7 +47,7 @@ function create() {
     for ($i = 1; $i < 5; $i++) {
         echo "<div id=Circ" . $i . ">";
         echo "<img class='icones' id='imache".$i."' src='img/IM" . $i . ".png' alt='pwet'/>";
-        echo "<img class='icones' id='imache".$i."".$i."' src='img/IM" . $i . "" . $i . ".png' alt='pwet' />";
+        echo "<a onclick='return createTimedLink(this, AniTrans, 900);' href='?action=".$i."'><img class='icones' id='imache".$i."".$i."' src='img/IM" . $i . "" . $i . ".png' alt='pwet' /></a>";
         echo "<div id=Ico" . $i . ">";
         echo "</div>";
         echo "</div>";
@@ -78,10 +78,10 @@ function introduce(){
 }
 function menu2(){
     echo "<div id='menu2'>";
-    echo "<a class='pwettt' href='?action=1'><img src='img/IM1.png' alt='Me'/></a><br/><br/>";
-    echo "<a class='pwettt' href='?action=2'><img src='img/IM2.png' alt='Contact'/></a><br/><br/>";
-    echo "<a href='?action=3'><img src='img/IM3.png' alt='Traveaux'/></a><br/><br/>";
-    echo "<a href='?action=4'><img src='img/IM4.png' alt='CV'/></a>";
+    echo "<a onclick='return createTimedLink(this, AniTrans, 900);' href='?action=1'><img src='img/IM1.png' alt='Me'/></a><br/><br/>";
+    echo "<a onclick='return createTimedLink(this, AniTrans, 900);' href='?action=2'><img src='img/IM2.png' alt='Contact'/></a><br/><br/>";
+    echo "<a onclick='return createTimedLink(this, AniTrans, 900);' href='?action=3'><img src='img/IM3.png' alt='Traveaux'/></a><br/><br/>";
+    echo "<a onclick='return createTimedLink(this, AniTrans, 900);' href='?action=4'><img src='img/IM4.png' alt='CV'/></a>";
     echo "</div>";
 }
 ?>
