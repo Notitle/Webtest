@@ -27,6 +27,12 @@ function head() {
     echo "</head>";
     echo "<body>";
     echo "<div id='trans'></div>";
+    echo "<img class='googleback' src='img/google.png' alt='googleBack' title='googleback'/>";
+    echo "<a href='https://plus.google.com/u/0/109034735526845072800'><img class='google' src='img/google+.png' alt='google+' title='google+'/></a>";
+    echo "<img class='facebookback' src='img/facebook.png' alt='facebookback' title='facebookback'/>";
+    echo "<a href='https://plus.google.com/u/0/109034735526845072800'><img class='facebook' src='img/facebook+.png' alt='facebook' title='facebook'/></a>";
+    echo "<img class='linkedBack' src='img/linked.png' alt='linkedBack' title='linkedBack'/>";
+    echo "<a href='https://plus.google.com/u/0/109034735526845072800'><img class='linkedin' src='img/linked+.png' alt='linkedin' title='linkedin'/></a>";
 }
 
 function foot() {

@@ -77,7 +77,7 @@ $(document).ready(function() {
         "top": "50%"
     });
 
-    $('#Ico1,#Ico2,#Ico3,#Ico4,#imache11,#imache22,#imache33,#imache44').hide();
+    $('#Ico1,#Ico2,#Ico3,#Ico4,#imache11,#imache22,#imache33,#imache44,.googleback,.linkedBack,.facebookback').hide();
 
     $("#Circ1").hover(function() {
         link = "Me & Myself";
@@ -132,6 +132,24 @@ $(document).ready(function() {
         $("#imache44").fadeOut();
         $("#imache4").fadeIn();
     });
+    $(".google").hover(function() {
+        $(".googleback").fadeIn();
+
+    }, function() {
+        $(".googleback").fadeOut();
+    });
+    $(".linkedin").hover(function() {
+        $(".linkedback").fadeIn();
+
+    }, function() {
+        $(".linkedback").fadeOut();
+    });
+    $(".google").hover(function() {
+        $(".googleback").fadeIn();
+
+    }, function() {
+        $(".googleback").fadeOut();
+    });
 
 
     function Switch() {
@@ -150,30 +168,7 @@ $(document).ready(function() {
                 "top": "-0%"});
         }
     }
-//////////////////////////////////////////////////////////
-////////////////////
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//////////////////////////////////////
+    
     function Rename() {
 
         if (cpt % 2 !== 0) {
