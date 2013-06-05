@@ -141,11 +141,11 @@ $(document).ready(function() {
                 "top": "+100%"});
             $(".label2").css({
                 "top": "-100%"});
-            $(".label2").html("<a onclick='return createTimedLink(this, AniTrans, 900);' href='?action=" + act + "'>" + link + "</a>");
+            $(".label2").html("<a id='pwet' onclick='return createTimedLink(this, AniTrans, 900);' href='?action=" + act + "'>" + link + "</a>");
         } else {
             $(".label1").css({
                 "top": "+0%"});
-            $(".label1").html("<a onclick='return createTimedLink(this, AniTrans, 900);' href='?action=" + act + "'>" + link + "</a>");
+            $(".label1").html("<a id='pwet' onclick='return createTimedLink(this, AniTrans, 900);' href='?action=" + act + "'>" + link + "</a>");
             $(".label2").css({
                 "top": "-0%"});
         }
@@ -219,7 +219,7 @@ $(document).ready(function() {
 });
 
 function createTimedLink(element, callback, timeout){
-    console.log(element);
+    
   setTimeout( function(){callback(element);}, timeout);
   return false;
 }
@@ -229,12 +229,13 @@ function AniTrans() {
         $('#trans').toggleClass("animat2",false);
         $('#trans').addClass('animat');
         
-        var dest = $("a").attr('href');
+        var dest = $('#pwet').attr('href');
         if (typeof(dest) !== "undefined" && dest !== "") {
             
             setTimeout(function(){window.location.href = dest;}, 1200);
         }
-        
+        console.log(dest);
+       
  }
 
 function open(){
