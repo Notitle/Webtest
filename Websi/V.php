@@ -78,7 +78,7 @@ function introduce() {
     echo "<div id='pres'>";
     echo "<h3>Présentation</h3>";
     echo "<p>Bonjour et bienvenu, visiteur anonyme, sur betaweb.com.</p>";
-    echo "<p>Vous pouvez trouver ici mes traveaux (achevés ou en construction), mon CV disponnible au téléchargement et de quoi me contacter. Je suis également disponible via LinkedIN/Facebook/Google+.</p>";
+    echo "<p>Vous pouvez trouver ici mes travaux (achevés ou en construction), mon CV disponnible au téléchargement et de quoi me contacter. Je suis également disponible via LinkedIN/Facebook/Google+.</p>";
     echo "<p>Je m'appelle Jerome Leboutte. Développeur Web Junior, fraîchement formé chez <span class='lien'><a href='http://www.steformations.be/'>STE-Formations</a></span>.</p>";
     echo "<p>Anciennement étudiant dans les sciences à l'ISIL et diplômé en tant qu'assistant en pharmacie, je me suis redirigé vers les internets et plus précisement dans la programmation par passion.<br/> le reste est a completer</p>";
     echo "</div>";
@@ -88,14 +88,21 @@ function menu2() {
     echo "<div id='menu2'>";
     echo "<a onclick='return createTimedLink(this, AniTrans, 900);' href='?action=1'><img src='img/IM1.png' alt='Me'/></a><br/><br/>";
     echo "<a onclick='return createTimedLink(this, AniTrans, 900);' href='?action=2'><img src='img/IM2.png' alt='Contact'/></a><br/><br/>";
-    echo "<a onclick='return createTimedLink(this, AniTrans, 900);' href='?action=3'><img src='img/IM3.png' alt='Traveaux'/></a><br/><br/>";
+    echo "<a onclick='return createTimedLink(this, AniTrans, 900);' href='?action=3'><img src='img/IM3.png' alt='Travaux'/></a><br/><br/>";
     echo "<a onclick='return createTimedLink(this, AniTrans, 900);' href='?action=4'><img src='img/IM4.png' alt='CV'/></a>";
     echo "</div>";
 }
 
 function CV() {
+    echo "<div id='contain1'>";
     echo "<h3 id='langTit'>Languages</h3>";
     echo "<label><input type='checkbox'>Sort values</label>";
+    echo "</div>";
+    
+    echo "<div id='contain2'>";
+    echo "<h3 id='langTit'>Applications</h3>";
+    echo "<label><input type='checkbox'>Sort values</label>";
+    echo "</div>";
 }
 
 function cat() {

@@ -1,5 +1,5 @@
 $(document).ready(function() {
-
+    open();
     window.onresize = canovas;
     window.onload = canovas;
 
@@ -76,7 +76,7 @@ $(document).ready(function() {
         "top": "50%"
     });
 
-    $('#Ico1,#Ico2,#Ico3,#Ico4,#imache11,#imache22,#imache33,#imache44,.googleback,.linkedBack,.facebookback').hide();
+    $('#Ico1,#Ico2,#Ico3,#Ico4,#imache11,#imache22,#imache33,#imache44,.googleback,.linkedBack,.facebookback,#contain1,#contain2').hide();
 
     $("#Circ1").hover(function() {
         link = "Me & Myself";
@@ -106,7 +106,7 @@ $(document).ready(function() {
         $("#imache2").fadeIn();
     });
     $("#Circ3").hover(function() {
-        link = "Traveaux";
+        link = "Travaux";
         act = 3;
         Switch();
         Rename();
@@ -206,20 +206,24 @@ $(document).ready(function() {
         context.closePath();
         context.fill();
 
-        open();
+        
     }
 
     $("#langui").click(function() {
         d3.select("svg").remove();
         loc = "tsv/Languages.tsv";
         yep(loc);
+        $("#contain1").fadeIn();
+        $("#contain2").fadeOut();
     });
     $("#appli").click(function() {
         d3.select("svg").remove();
         loc = "tsv/Log.tsv";
         yep(loc);
+        $("#contain2").fadeIn();
+        $("#contain1").fadeOut();
     });
-
+    
     function open() {
         $("#trans").addClass('animat2');
     }
