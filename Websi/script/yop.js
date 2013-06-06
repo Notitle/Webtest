@@ -3,8 +3,6 @@ $(document).ready(function() {
     window.onresize = canovas;
     window.onload = canovas;
 
-    console.log()
-
     var tabCOL = new Array();
     tabCOL[0] = "";
     var borderWIDTH = 10;
@@ -12,14 +10,15 @@ $(document).ready(function() {
     var link = "";
     var act = 0;
     var cpt = 0;
-    
+    var loc = "";
 
     for (var j = 1; j < 5; j++) {
         var boxWIDTH = 100;
         var boxHEIGHT = 100;
         var boxCOLOR = 'rgba(' + (Math.floor(Math.random() * 256)) + ',' + (Math.floor(Math.random() * 256)) + ',' + (Math.floor(Math.random() * 256)) + ',' + 0.65 + ')';
         tabCOL[j] = boxCOLOR;
-        $('#Circ' + j).css({/*"background-color": boxCOLOR,*/
+
+        $('#Circ' + j).css({
             "width": boxWIDTH,
             "height": boxHEIGHT,
             "text-align": "center",
@@ -151,7 +150,6 @@ $(document).ready(function() {
         $(".googleback").fadeOut();
     });
 
-
     function Switch() {
         cpt = cpt + 1;
         if (cpt % 2 !== 0) {
@@ -168,7 +166,7 @@ $(document).ready(function() {
                 "top": "-0%"});
         }
     }
-    
+
     function Rename() {
 
         if (cpt % 2 !== 0) {
@@ -194,46 +192,174 @@ $(document).ready(function() {
         canvas.width = CanWidth;
         canvas.height = CanHeight;
         context.fillStyle = "#ffffff";
-        
+
         context.moveTo(0, 0);
         context.lineTo(0, 200);
         context.lineTo(CanWidth, 150);
         context.lineTo(CanWidth, 0);
         context.closePath();
-        
+
         context.moveTo(0, CanHeight);
         context.lineTo(0, CanHeight - 150);
         context.lineTo(CanWidth, CanHeight - 200);
         context.lineTo(CanWidth, CanHeight);
         context.closePath();
         context.fill();
-        
+
         open();
     }
 
+    $("#langui").click(function() {
+        d3.select("svg").remove();
+        loc = "tsv/Languages.tsv";
+        yep(loc);
+    });
+    $("#appli").click(function() {
+        d3.select("svg").remove();
+        loc = "tsv/Log.tsv";
+        yep(loc);
+    });
+
+    function open() {
+        $("#trans").addClass('animat2');
+    }
+
+    function yep(loc) {
+        var margin = {top: 20, right: 20, bottom: 30, left: 40},
+        width = 700 - margin.left - margin.right,
+                height = 300 - margin.top - margin.bottom;
+
+        var formatLVL = d3.format("<div>.0%</div>");
+        var x = d3.scale.ordinal()
+                .rangeRoundBands([0, width], .1, 1);
+
+        var y = d3.scale.linear()
+                .range([height, 0]);
+
+        var xAxis = d3.svg.axis()
+                .scale(x)
+                .orient("bottom");
+
+        var yAxis = d3.svg.axis()
+                .scale(y)
+                .orient("left")
+                .tickFormat(formatLVL);
+
+        var svg = d3.select("body").append("svg")
+                .attr("width", width + margin.left + margin.right)
+                .attr("height", height + margin.top + margin.bottom)
+                .append("g")
+                .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+
+        d3.tsv(loc, function(error, data) {
+
+            data.forEach(function(d) {
+                d.Niveau = +d.Niveau;
+            });
+
+            x.domain(data.map(function(d) {
+                return d.Lang;
+            }));
+            y.domain([0, d3.max(data, function(d) {
+                    return d.Niveau;
+                })]);
+
+            svg.append("g")
+                    .attr("class", "x axis")
+                    .attr("transform", "translate(0," + height + ")")
+                    .call(xAxis);
+
+            svg.append("g")
+                    .attr("class", "y axis")
+                    .call(yAxis)
+                    .append("text")
+                    .attr("transform", "rotate(-90)")
+                    .attr("y", 6)
+                    .attr("dy", ".71em")
+                    .style("text-anchor", "end")
+                    .text("Niveau");
+
+            svg.selectAll(".bar")
+                    .data(data)
+                    .enter().append("rect")
+                    .attr("class", "bar")
+                    .attr("x", function(d) {
+                return x(d.Lang);
+            })
+                    .attr("width", x.rangeBand())
+                    .attr("y", function(d) {
+                return y(d.Niveau);
+            })
+                    .attr("height", function(d) {
+                return height - y(d.Niveau);
+            });
+
+            d3.select("input").on("change", change);
+
+            var sortTimeout = setTimeout(function() {
+                d3.select("input").property("checked", true).each(change);
+            }, 1500);
+
+            function change() {
+                clearTimeout(sortTimeout);
+
+                // Copy-on-write since tweens are evaluated after a delay.
+                var x0 = x.domain(data.sort(this.checked
+                        ? function(a, b) {
+                    return b.Niveau - a.Niveau;
+                }
+                : function(a, b) {
+                    return d3.ascending(a.Lang, b.Lang);
+                })
+                        .map(function(d) {
+                    return d.Lang;
+                }))
+                        .copy();
+
+                var transition = svg.transition().duration(600),
+                        delay = function(d, i) {
+                    return i * 50;
+                };
+
+                transition.selectAll(".bar")
+                        .delay(delay)
+                        .attr("x", function(d) {
+                    return x0(d.Lang);
+                });
+
+                transition.select(".x.axis")
+                        .call(xAxis)
+                        .selectAll("g")
+                        .delay(delay);
+            }
+        });
+    }
+
+//fin onload
 });
 
-function createTimedLink(element, callback, timeout){
-    
-  setTimeout( function(){callback(element);}, timeout);
-  return false;
+function createTimedLink(element, callback, timeout) {
+
+    setTimeout(function() {
+        callback(element);
+    }, timeout);
+    return false;
 }
 
-function AniTrans() { 
-  
-        $('#trans').toggleClass("animat2",false);
-        $('#trans').addClass('animat');
-        
-        var dest = $('#pwet').attr('href');
-        if (typeof(dest) !== "undefined" && dest !== "") {
-            
-            setTimeout(function(){window.location.href = dest;}, 1200);
-        }
-        console.log(dest);
-       
- }
+function AniTrans() {
 
-function open(){
-    $("#trans").addClass('animat2');
-    
+    $('#trans').toggleClass("animat2", false);
+    $('#trans').addClass('animat');
+
+    var dest = $('#pwet').attr('href');
+    if (typeof(dest) !== "undefined" && dest !== "") {
+
+        setTimeout(function() {
+            window.location.href = dest;
+        }, 1200);
+    }
+    console.log(dest);
+
 }
+

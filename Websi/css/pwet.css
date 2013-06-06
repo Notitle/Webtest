@@ -182,3 +182,63 @@ A:hover {text-decoration: none;color:black;}
     right:140px;  
     z-index: 9998;
 }
+svg{
+    position: absolute;
+    top:30%;
+    left:30%;
+}
+#bars {
+    
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  position: relative;
+}
+
+.axis text {
+  font: 10px sans-serif;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.bar {
+   
+  fill: white;
+  fill-opacity: .9;
+  stroke:#000;
+  
+}
+.bar:hover {
+  fill:red;
+  fill-opacity: .5;
+}
+
+.x.axis path {
+  display: none;
+}
+
+label {
+  position: absolute;
+  top:75%;
+}
+h3{
+    position: absolute;
+    top:25%;
+    left:50%;
+}
+
+#cats{
+    text-align: right;
+    position: absolute;
+    right:20px;
+    top:22%;
+    float:right;
+    
+}
+ul{
+   list-style-type: none; 
+}
+

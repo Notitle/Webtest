@@ -5,7 +5,7 @@ function connexion(){
 		if (!isset ($connexion)) {
 			$utilisateur ="root";
 			$motdepasse="kornrok";
-			$serveur= "mysql:host=localhost;dbname=labo1";
+			$serveur= "mysql:host=localhost;dbname=?????";
 			$connexion = new PDO ($serveur,$utilisateur,$motdepasse);
 		 	$connexion->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 			$requete="SET NAMES utf8";

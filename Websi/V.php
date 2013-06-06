@@ -19,25 +19,26 @@ function head() {
     echo "<meta property='og:image' content='http://???/images/???' />";
     echo "<meta property='og:site_name' content='???' />";
     echo "<meta property='fb:admins' content='598636367' />";
-    
+
     echo "<link rel='icon' href='http://???/images/favicon.ico' type='image/x-icon' />";
     echo "<link rel='stylesheet' media='screen' href='css/pwet.css' type='text/css' />";
     echo "<script src='script/jquery-1.9.1.js'></script>";
     echo "<script src='script/yop.js'></script>";
+    echo "<script src='http://d3js.org/d3.v3.min.js'></script>";
     echo "</head>";
     echo "<body>";
     echo "<div id='trans'></div>";
     echo "<img class='googleback' src='img/google.png' alt='googleBack' title='googleback'/>";
     echo "<a href='https://plus.google.com/u/0/109034735526845072800'><img class='google' src='img/google+.png' alt='google+' title='google+'/></a>";
     echo "<img class='facebookback' src='img/facebook.png' alt='facebookback' title='facebookback'/>";
-    echo "<a href='https://plus.google.com/u/0/109034735526845072800'><img class='facebook' src='img/facebook+.png' alt='facebook' title='facebook'/></a>";
+    echo "<a href='https://www.facebook.com/Broshambo'><img class='facebook' src='img/facebook+.png' alt='facebook' title='facebook'/></a>";
     echo "<img class='linkedBack' src='img/linked.png' alt='linkedBack' title='linkedBack'/>";
-    echo "<a href='https://plus.google.com/u/0/109034735526845072800'><img class='linkedin' src='img/linked+.png' alt='linkedin' title='linkedin'/></a>";
+    echo "<a href='http://www.linkedin.com/pub/jerome-leboutte/66/6b5/26'><img class='linkedin' src='img/linked+.png' alt='linkedin' title='linkedin'/></a>";
 }
 
 function foot() {
     echo "<footer>";
-    
+
     echo "</div>";
     echo "</footer>";
     echo "</body>";
@@ -52,8 +53,8 @@ function menu() {
 function create() {
     for ($i = 1; $i < 5; $i++) {
         echo "<div id=Circ" . $i . ">";
-        echo "<img class='icones' id='imache".$i."' src='img/IM" . $i . ".png' alt='pwet'/>";
-        echo "<a onclick='return createTimedLink(this, AniTrans, 900);' href='?action=".$i."'><img class='icones' id='imache".$i."".$i."' src='img/IM" . $i . "" . $i . ".png' alt='pwet' /></a>";
+        echo "<img class='icones' id='imache" . $i . "' src='img/IM" . $i . ".png' alt='pwet'/>";
+        echo "<a onclick='return createTimedLink(this, AniTrans, 900);' href='?action=" . $i . "'><img class='icones' id='imache" . $i . "" . $i . "' src='img/IM" . $i . "" . $i . ".png' alt='pwet' /></a>";
         echo "<div id=Ico" . $i . ">";
         echo "</div>";
         echo "</div>";
@@ -73,7 +74,7 @@ function testheader() {
     echo "</canvas>";
 }
 
-function introduce(){
+function introduce() {
     echo "<div id='pres'>";
     echo "<h3>Présentation</h3>";
     echo "<p>Bonjour et bienvenu, visiteur anonyme, sur betaweb.com.</p>";
@@ -82,12 +83,30 @@ function introduce(){
     echo "<p>Anciennement étudiant dans les sciences à l'ISIL et diplômé en tant qu'assistant en pharmacie, je me suis redirigé vers les internets et plus précisement dans la programmation par passion.<br/> le reste est a completer</p>";
     echo "</div>";
 }
-function menu2(){
+
+function menu2() {
     echo "<div id='menu2'>";
     echo "<a onclick='return createTimedLink(this, AniTrans, 900);' href='?action=1'><img src='img/IM1.png' alt='Me'/></a><br/><br/>";
     echo "<a onclick='return createTimedLink(this, AniTrans, 900);' href='?action=2'><img src='img/IM2.png' alt='Contact'/></a><br/><br/>";
     echo "<a onclick='return createTimedLink(this, AniTrans, 900);' href='?action=3'><img src='img/IM3.png' alt='Traveaux'/></a><br/><br/>";
     echo "<a onclick='return createTimedLink(this, AniTrans, 900);' href='?action=4'><img src='img/IM4.png' alt='CV'/></a>";
+    echo "</div>";
+}
+
+function CV() {
+    echo "<h3 id='langTit'>Languages</h3>";
+    echo "<label><input type='checkbox'>Sort values</label>";
+}
+
+function cat() {
+    echo "<div id='cats'>";
+    echo "<ul>";
+    echo "<li id='objec'>Objectifs</li>";
+    echo "<li id='forma'>Formations</li>";
+    echo "<li id='langui'>Languages</li>";
+    echo "<li id='appli'>Applications ~ Logiciels de gestion</li>";
+    echo "<li id='ati'>Atout ~ Loisirs</li>";
+    echo "</ul>";
     echo "</div>";
 }
 ?>

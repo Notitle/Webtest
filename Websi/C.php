@@ -26,8 +26,8 @@ switch ($action) {
         break;
     case 4:
         CV();
+        menu2();
+        cat();
+        
         break;
 };
-
-
-?>
