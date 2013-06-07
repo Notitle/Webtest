@@ -24,7 +24,7 @@ function head() {
     echo "<link rel='stylesheet' media='screen' href='css/pwet.css' type='text/css' />";
     echo "<script src='script/jquery-1.9.1.js'></script>";
     echo "<script src='script/yop.js'></script>";
-    echo "<script src='http://d3js.org/d3.v3.min.js'></script>";
+    echo "<script src='script/d3.js'></script>";
     echo "</head>";
     echo "<body>";
     echo "<div id='trans'></div>";
@@ -86,22 +86,25 @@ function introduce() {
 
 function menu2() {
     echo "<div id='menu2'>";
-    echo "<a onclick='return createTimedLink(this, AniTrans, 900);' href='?action=1'><img src='img/IM1.png' alt='Me'/></a><br/><br/>";
-    echo "<a onclick='return createTimedLink(this, AniTrans, 900);' href='?action=2'><img src='img/IM2.png' alt='Contact'/></a><br/><br/>";
-    echo "<a onclick='return createTimedLink(this, AniTrans, 900);' href='?action=3'><img src='img/IM3.png' alt='Travaux'/></a><br/><br/>";
-    echo "<a onclick='return createTimedLink(this, AniTrans, 900);' href='?action=4'><img src='img/IM4.png' alt='CV'/></a>";
+    echo "<a id='pwet' onclick='return createTimedLink2(this, AniTrans, 900);' href='?action=1'>plop</a><br/>";
+    echo "<a id='pwet' onclick='return createTimedLink2(this, AniTrans, 900);' href='?action=2'>plop</a><br/>";
+    echo "<a onclick='return createTimedLink2(this, AniTrans, 900);' href='?action=2'><img src='img/IM2.png' alt='Contact'/></a><br/><br/>";
+    echo "<a onclick='return createTimedLink2(this, AniTrans, 900);' href='?action=3'><img src='img/IM3.png' alt='Travaux'/></a><br/><br/>";
+    echo "<a onclick='return createTimedLink2(this, AniTrans, 900);' href='?action=4'><img src='img/IM4.png' alt='CV'/></a>";
     echo "</div>";
 }
 
 function CV() {
+    echo "<label><input type='checkbox'>Trier les valeurs</label>";
     echo "<div id='contain1'>";
     echo "<h3 id='langTit'>Languages</h3>";
-    echo "<label><input type='checkbox'>Sort values</label>";
+
     echo "</div>";
-    
+    Objectifs();
+    Formations();
+    Atouts();
     echo "<div id='contain2'>";
     echo "<h3 id='langTit'>Applications</h3>";
-    echo "<label><input type='checkbox'>Sort values</label>";
     echo "</div>";
 }
 
@@ -112,8 +115,60 @@ function cat() {
     echo "<li id='forma'>Formations</li>";
     echo "<li id='langui'>Languages</li>";
     echo "<li id='appli'>Applications ~ Logiciels de gestion</li>";
-    echo "<li id='ati'>Atout ~ Loisirs</li>";
+    echo "<li id='ati'>Atouts ~ Loisirs ~ Langues</li>";
     echo "</ul>";
+    echo "</div>";
+}
+
+function Objectifs() {
+    echo "<div id='objectifs'>";
+    echo "<h3 id='langTit'>Objectifs</h3>";
+    echo "<span id='objecti'>Fort d'une formation qualifiante en Développement Web, 
+        <br/>je souhaite aujourd'hui professionnaliser mes compétences au service d'une entreprise active 
+        dans le secteur web en tant que programmeur internet.</span>";
+    echo "</div>";
+}
+
+function Formations() {
+    echo "<div id='formations'>";
+    echo "<h3 id='langTit'>Formations</h3>";
+    echo "<div id='objecti'>
+        <p>2013 ~ en cour Formation en développement web STE Formations, Université de Liège.<br/>
+    Apprentissage et mise en pratique des langages de programmation orientés web.</p>
+    
+    <p>Juin ~ Décembre 2012 E-learning<br/>
+    Référencement et CSS. Technofutur-TIC.</p>
+    
+    <p>Avril ~ Juin 2012 Initiation à la programmation
+STE Formations, Université de Liège.<br/>
+Introduction aux différents langages de programmation (Java, sql, html, php...)</p>
+
+<p>2010 ~ 2012 Recherche d’emploi et réorientation professionnelle en informatique
+Autoformation</p>
+<p>2008 ~ 2010 Formation d’assistant pharmaceutico-technique</p>
+Diplôme obtenu. Promotion Sociale, Jemeppe.</p>
+<p>2005 ~ 2008 Biotechnologie à l’ISIL, Liège</p>
+<p>2002 ~ 2005 CESS en biotechnologie
+École secondaire IPEA La Reid.</p></div>";
+    echo "</div>";
+}
+
+function Atouts() {
+    echo "<div id='atouts'>";
+   
+    echo " <h3 id='atts'>Atouts</h3><br/><br/>
+        <p>Rigueur Respect des échéances/ délais<br/>
+        Expérience avec le contact client <br/>
+        Respect des règles et des procédures</p> 
+            
+        <h3 id='lois'>Loisirs</h3><br/>
+        <p>Interet pour les nouvelles technologies <br/>
+        Jeux [consoles, pc, table]</p>
+        
+        <h3 id='langs'>Langues</h3>  <br/>  
+            <p>Anglais ~ Bon niveau (ecrit / parlé)<br/>
+            Français ~ Langue maternelle</p>";
+    
     echo "</div>";
 }
 ?>

@@ -76,7 +76,7 @@ $(document).ready(function() {
         "top": "50%"
     });
 
-    $('#Ico1,#Ico2,#Ico3,#Ico4,#imache11,#imache22,#imache33,#imache44,.googleback,.linkedBack,.facebookback,#contain1,#contain2').hide();
+    $('#Ico1,#Ico2,#Ico3,#Ico4,#imache11,#imache22,#imache33,#imache44,.googleback,.linkedBack,.facebookback,#contain1,#contain2,label,#formations,#atouts').hide();
 
     $("#Circ1").hover(function() {
         link = "Me & Myself";
@@ -205,30 +205,48 @@ $(document).ready(function() {
         context.lineTo(CanWidth, CanHeight);
         context.closePath();
         context.fill();
-
-        
     }
+    
+    $("#objec").click(function() {
+        d3.select("svg").remove();
+        $("#objectifs").fadeIn();
+        $("#contain1,#contain2,#formations,#atouts,label").fadeOut();
+    });
+    $("#forma").click(function() {
+        d3.select("svg").remove();
+        $("#formations").fadeIn();
+        $("#contain1,#contain2,#objectifs,#atouts,label").fadeOut();
+    });
+    $("#ati").click(function() {
+        d3.select("svg").remove();
+        loc = "tsv/Languages.tsv";
+        $("#atouts").fadeIn();
+        $("#contain2,#objectifs,#formations,#contain1,label").fadeOut();
 
+    });
     $("#langui").click(function() {
         d3.select("svg").remove();
         loc = "tsv/Languages.tsv";
-        yep(loc);
-        $("#contain1").fadeIn();
-        $("#contain2").fadeOut();
+        BarChart(loc);
+        $("#contain1,label").fadeIn();
+        $("#contain2,#objectifs,#formations,#atouts").fadeOut();
+
     });
     $("#appli").click(function() {
         d3.select("svg").remove();
         loc = "tsv/Log.tsv";
-        yep(loc);
-        $("#contain2").fadeIn();
-        $("#contain1").fadeOut();
+        BarChart(loc);
+        $("#contain2,label").fadeIn();
+        $("#contain1,#objectifs,#formations,#atouts").fadeOut();
     });
-    
+
     function open() {
         $("#trans").addClass('animat2');
     }
 
-    function yep(loc) {
+
+
+    function BarChart(loc) {
         var margin = {top: 20, right: 20, bottom: 30, left: 40},
         width = 700 - margin.left - margin.right,
                 height = 300 - margin.top - margin.bottom;
@@ -257,7 +275,7 @@ $(document).ready(function() {
 
 
         d3.tsv(loc, function(error, data) {
-
+            var j = 0;
             data.forEach(function(d) {
                 d.Niveau = +d.Niveau;
             });
@@ -290,6 +308,8 @@ $(document).ready(function() {
                     .attr("class", "bar")
                     .attr("x", function(d) {
                 return x(d.Lang);
+
+
             })
                     .attr("width", x.rangeBand())
                     .attr("y", function(d) {
@@ -301,14 +321,33 @@ $(document).ready(function() {
 
             d3.select("input").on("change", change);
 
+            //incrementation des id
+
+            d3.selectAll(".bar").attr("id", function(d, i) {
+                return "barlos" + i;
+            });
+
+            //query pour les 
+            var o=1;
+            var boxiCOLOR = 'rgba(' + (Math.floor(Math.random() * 256)) + ',' + (Math.floor(Math.random() * 256)) + ',' + (Math.floor(Math.random() * 256)) + ',' + o + ')';
+            //recuperer la valeur de chaque barre pour etablir une opacite en fct de la taille et non juste décroissante.
+            d3.selectAll('.bar').each(function(d,i) { 
+                
+                o=o-0.06;
+                d3.select(this).style("fill", boxiCOLOR).style("opacity",o); 
+                
+            });
+            
+//            d3.select(".bar").style("fill", "red");
+
             var sortTimeout = setTimeout(function() {
-                d3.select("input").property("checked", true).each(change);
-            }, 1500);
+                d3.select("input").property("unchecked", true).each(change);
+            }, 500);
 
             function change() {
                 clearTimeout(sortTimeout);
 
-                // Copy-on-write since tweens are evaluated after a delay.
+
                 var x0 = x.domain(data.sort(this.checked
                         ? function(a, b) {
                     return b.Niveau - a.Niveau;
@@ -337,9 +376,14 @@ $(document).ready(function() {
                         .selectAll("g")
                         .delay(delay);
             }
-        });
-    }
 
+        });
+
+    }
+$("a").click(function(){
+    console.log("plop");
+    setTimeout(function(){window.location.href='test.de/#thankyou';}, 10000); 
+})
 //fin onload
 });
 
@@ -367,3 +411,26 @@ function AniTrans() {
 
 }
 
+function createTimedLink2(element, callback, timeout) {
+
+    setTimeout(function() {
+        callback(element);
+    }, timeout);
+    return false;
+}
+
+function AniTrans() {
+
+    $('#trans').toggleClass("animat2", false);
+    $('#trans').addClass('animat');
+
+    var dest = $('#pwet').attr('href');
+    if (typeof(dest) !== "undefined" && dest !== "") {
+
+        setTimeout(function() {
+            window.location.href = dest;
+        }, 1200);
+    }
+    console.log(dest);
+
+}
