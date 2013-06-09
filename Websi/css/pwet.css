@@ -211,9 +211,10 @@ svg{
   
 }
 .bar:hover {
-  fill:red;
-  fill-opacity: .5;
+ stroke:black;
 }
+
+
 
 .x.axis path {
   display: none;
@@ -232,12 +233,14 @@ ul{
 }
 
 li:hover{
+    
     color:white;
     background-color: black;
+    z-index: 6000;
 }
 
-#contain1{
-
+#contain1,#objectifs,#contain2,#formations,#atouts{
+    text-align: left;
     position :absolute;
     top:25%;
     left:32%;
@@ -246,21 +249,34 @@ li:hover{
     
 }
 h3{
-        position: absolute;
+    position: absolute;
     top:0%;
     left:0%
 }
 label{
     position: absolute;
     bottom:0%;
-    left:0%
-}
-#contain2{
-
-    position :absolute;
-    top:25%;
     left:32%;
-    height:400px;
-    width:500px;     
-    
+    top:62%;
+    z-index: 6000;
+}
+#objecti{
+    position: absolute;
+    top: 100px;
+}
+svg{
+    z-index: 5000;
+}
+
+#atts{
+    position : absolute;
+    top:0px;
+}
+#lois{
+    position : absolute;
+    top:115px;
+}
+#langs{
+    position : absolute;
+    top:200px;
 }

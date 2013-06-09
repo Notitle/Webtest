@@ -3324,7 +3324,7 @@ d3 = function() {
     };
     var Ja = oa.requestAnimationFrame || oa.webkitRequestAnimationFrame || oa.mozRequestAnimationFrame || oa.oRequestAnimationFrame || oa.msRequestAnimationFrame || function(n) {
         setTimeout(n, 17)
-    }, Ga = ".", Ka = ",", Wa = [3, 3], Qa = ["y", "z", "a", "f", "p", "n", "µ", "m", "", "k", "M", "G", "T", "P", "E", "Z", "Y"].map(yt);
+    }, Ga = ".", Ka = ",", Wa = [3, 3], Qa = ["y", "z", "a", "f", "p", "n", "Âµ", "m", "", "k", "M", "G", "T", "P", "E", "Z", "Y"].map(yt);
     ua.formatPrefix = function(n, t) {
         var e = 0;
         return n && (0 > n && (n *= -1), t && (n = ua.round(n, Mt(n, t))), e = 1 + Math.floor(1e-12 + Math.log(n) / Math.LN10), e = Math.max(-24, Math.min(24, Math.floor((0 >= e ? e + 1 : e - 1) / 3) * 3))), Qa[8 + e / 3]
@@ -4637,7 +4637,6 @@ d3 = function() {
         }});
     ua.svg.symbolTypes = ec.keys();
     var rc, ic = Math.sqrt(3), uc = Math.tan(30 * La), ac = [], oc = 0, cc = {ease: kr, delay: 0, duration: 250};
-    var i=0;
     ac.call = wa.call, ac.empty = wa.empty, ac.node = wa.node, ua.transition = function(n) {
         return arguments.length ? rc ? n.transition() : n : Na.transition()
     }, ua.transition.prototype = ac, ac.select = function(n) {
@@ -4800,11 +4799,9 @@ d3 = function() {
         return vu(a, u)
     }, ua.svg.axis = function() {
         function n(n) {
-            
             n.each(function() {
-                var n, s = ua.select(this), h = null == l ? e.ticks ? e.ticks.apply(e, c) : e.domain() : l, g = null == t ? e.tickFormat ? e.tickFormat.apply(e, c) : String : t, p = wu(e, h, f), d = s.selectAll(".tick.minor").data(p, String), m = d.enter().insert("line", ".tick").attr("class", "tick minor").style("opacity", 1e-6), v = ua.transition(d.exit()).style("opacity", 1e-6).remove(), y = ua.transition(d).style("opacity", 1), M = s.selectAll(".tick.major").data(h, String), x = M.enter().insert("g", "path").attr("class", "tick major"+i).style("opacity", 1e-6), b = ua.transition(M.exit()).style("opacity", 1e-6).remove(), _ = ua.transition(M).style("opacity", 1), w = Hi(e), S = s.selectAll(".domain").data([0]), E = (S.enter().append("path").attr("class", "domain"), ua.transition(S)), k = e.copy(), A = this.__chart__ || k;
+                var n, s = ua.select(this), h = null == l ? e.ticks ? e.ticks.apply(e, c) : e.domain() : l, g = null == t ? e.tickFormat ? e.tickFormat.apply(e, c) : String : t, p = wu(e, h, f), d = s.selectAll(".tick.minor").data(p, String), m = d.enter().insert("line", ".tick").attr("class", "tick minor").style("opacity", 1e-6), v = ua.transition(d.exit()).style("opacity", 1e-6).remove(), y = ua.transition(d).style("opacity", 1), M = s.selectAll(".tick.major").data(h, String), x = M.enter().insert("g", "path").attr("class", "tick major").style("opacity", 1e-6), b = ua.transition(M.exit()).style("opacity", 1e-6).remove(), _ = ua.transition(M).style("opacity", 1), w = Hi(e), S = s.selectAll(".domain").data([0]), E = (S.enter().append("path").attr("class", "domain"), ua.transition(S)), k = e.copy(), A = this.__chart__ || k;
                 this.__chart__ = k, x.append("line"), x.append("text");
-                i++;
                 var N = x.select("line"), q = _.select("line"), T = M.select("text").text(g), C = x.select("text"), z = _.select("text");
                 switch (r) {
                     case"bottom":

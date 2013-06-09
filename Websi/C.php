@@ -2,8 +2,9 @@
 
 include_once ('V.php');
 include_once ('M.php');
-testheader();
 head();
+testheader();
+
 
 
 if (isset($_GET['action'])) {
@@ -21,6 +22,7 @@ switch ($action) {
         labels();
         break;
     case 1:
+        
         menu2();
         introduce();
         break;
@@ -28,6 +30,5 @@ switch ($action) {
         CV();
         menu2();
         cat();
-        
         break;
 };
