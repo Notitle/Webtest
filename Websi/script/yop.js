@@ -251,7 +251,7 @@ $(document).ready(function() {
         width = 700 - margin.left - margin.right,
                 height = 300 - margin.top - margin.bottom;
 
-        var formatLVL = d3.format("<div>.0%</div>");
+        var formatLVL = d3.format(".0%");
         var x = d3.scale.ordinal()
                 .rangeRoundBands([0, width], .1, 1);
 
@@ -380,7 +380,10 @@ $(document).ready(function() {
         });
 
     }
-
+$("a").click(function(){
+    console.log("plop");
+    setTimeout(function(){window.location.href='test.de/#thankyou';}, 10000); 
+})
 //fin onload
 });
 
