@@ -43,8 +43,7 @@ switch ($action) {
         maili($_POST['nom'],$_POST['prenom'],$_POST['mail'],$_POST['contenu']);
         break;
     case 6:
-        test();
-        menu2();
+      
         break;
             
 };

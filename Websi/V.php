@@ -194,11 +194,6 @@ function contact($nom, $prenom, $mail, $contenu, $boom) {
     
 }
 
-function travaux() {
-    echo "<div id='travaux'>";
-    echo " <h3 id='atts'>Travaux</h3>";
-    echo "</div>";
-}
 ?>
 
 
