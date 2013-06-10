@@ -43,7 +43,9 @@ switch ($action) {
         maili($_POST['nom'],$_POST['prenom'],$_POST['mail'],$_POST['contenu']);
         break;
     case 6:
-      
+        menu2();
+        add_comment($_POST['nom'],$_POST['mail'],$_POST['contenu'],$_POST['id']);
+        list_travaux();
         break;
             
 };

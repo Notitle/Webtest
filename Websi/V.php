@@ -193,7 +193,21 @@ function contact($nom, $prenom, $mail, $contenu, $boom) {
     
     
 }
-
+function view_add_comment($id){
+    echo "<div id='ajoudroit'>";
+    echo "<span id='spacom'>Ajouter un commentaire</span><br/><br/>";
+    echo "<form method=post action='?action=6'>";
+    echo "<label for='nom'>Nom :</label><input type='text' name='nom' id='nom' value=''/><br />";
+    echo "<label for='mail'>Adresse mail :</label><input type='mail' name='mail' id='mail' value=''/><br />";
+    echo "<label for='contenu'>Contenu :</label><textarea id='contenu' name='contenu' rows='4' cols='16'></textarea><br />";
+    echo "<input type='hidden' name='id' value='" . $id . "'>";
+    echo "<input type='submit' value='Envoyer'>";
+    echo "</form>";
+    
+    echo "</div>";
+    echo "<br/>";
+    
+}
 ?>
 
 

@@ -1,7 +1,7 @@
 $(document).ready(function() {
     open();
-//    window.onresize = canovas;
-//    window.onload = canovas;
+    window.onresize = canovas;
+    window.onload = canovas;
 
     var tabCOL = new Array();
     tabCOL[0] = "";

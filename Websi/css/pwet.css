@@ -319,3 +319,55 @@ label
     border : 1px solid green;
 
 }
+#travi{
+    position : absolute;
+    display: inline-block;
+    text-align: left;
+    left : 20%;
+    top: 30%;
+   
+    overflow: auto;
+    overflow-x: hidden;
+    overflow-style: panner;
+}
+#titri{
+    position : absolute;
+    text-align: left;
+    left : 20%;
+    top: 24%;
+}
+#travgauche{
+    display: inline-block;
+    width: 300px;
+    height: 350px;
+    padding-right: 50px;
+    overflow: auto;
+}
+#commid{
+    display: inline-block;
+    float:right;
+    width:200px;
+    height: 350px;
+    padding-left: 50px;
+    border-left-style: solid;
+    border-left-color: white;
+    border-left-width: 2px;
+    padding-right: 50px;
+    overflow: auto;
+}
+#ajoudroit{
+    display: inline-block;
+    float:right;
+    height: 350px;
+    padding-left: 50px;
+    border-left-style: solid;
+    border-left-color: white;
+    border-left-width: 2px;
+    padding-right: 50px;
+    overflow: auto;
+}
+#spacom{
+    background-color: white;
+    font-weight: bold;
+    
+}
