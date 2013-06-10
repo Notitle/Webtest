@@ -380,10 +380,7 @@ $(document).ready(function() {
         });
 
     }
-$("a").click(function(){
-    console.log("plop");
-    setTimeout(function(){window.location.href='test.de/#thankyou';}, 10000); 
-})
+
 //fin onload
 });
 

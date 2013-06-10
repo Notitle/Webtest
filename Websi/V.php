@@ -86,12 +86,14 @@ function introduce() {
 
 function menu2() {
     echo "<div id='menu2'>";
-    echo "<a id='pwet' onclick='return createTimedLink2(this, AniTrans, 900);' href='?action=1'>plop</a><br/>";
+    echo "<a id='pwet' onclick='return createTimedLink2(this, AniTrans, 900);' href='?action=3'>plop</a><br/>";
     echo "<a id='pwet' onclick='return createTimedLink2(this, AniTrans, 900);' href='?action=2'>plop</a><br/>";
-    echo "<a onclick='return createTimedLink2(this, AniTrans, 900);' href='?action=2'><img src='img/IM2.png' alt='Contact'/></a><br/><br/>";
+    
     echo "<a onclick='return createTimedLink2(this, AniTrans, 900);' href='?action=3'><img src='img/IM3.png' alt='Travaux'/></a><br/><br/>";
     echo "<a onclick='return createTimedLink2(this, AniTrans, 900);' href='?action=4'><img src='img/IM4.png' alt='CV'/></a>";
     echo "</div>";
+    
+    echo "<a onclick='return createTimedLink2(this, AniTrans, 900);' href='?action=2'><img src='img/IM2.png' alt='Contact'/></a><br/><br/>";
 }
 
 function CV() {
