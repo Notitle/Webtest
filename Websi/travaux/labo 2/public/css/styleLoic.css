@@ -1,0 +1,130 @@
+body{
+    background-image: url(/MVC/images/wavegrid.png);   
+}
+
+#connec, #wrapper{
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+    background: white;
+    padding: 10px;
+    font-family: sans-serif;
+    box-shadow: 0 0 10px #8c8a8b;
+}
+
+#wrapper{
+    width: 80%;
+}
+
+menu a{
+    color: white;
+    text-decoration: none;
+}
+menu{
+    z-index: 0;
+    position: relative;
+}
+menu li
+{
+
+    display: inline-block;
+    vertical-align:top;
+    height: 25px;
+    padding-bottom:5px;
+    overflow:hidden;
+    margin: -2px;
+    background-color: gray;
+    color: white;
+    border-right : #cccccc 1px solid;
+
+}
+
+menu .lisTitle{
+    font-weight: bold;
+    display: inline-block;
+    margin-left: 5px;
+    margin-top: 3px;
+    margin-right: 10px;
+}
+menu ul{
+    -webkit-margin-before: 0;
+    -webkit-padding-start: 0;
+}
+
+menu li:hover {
+    background-color: #cccccc;
+    color: white;
+    overflow:visible;
+
+}
+
+menu li li
+{
+    border: 0;
+    border-bottom: 1px #cccccc solid;
+    padding: 5px;
+    display: block;
+    height: 25px;
+    margin:0;
+}
+menu li ul{
+    margin-top:7px;
+}
+.error{
+    
+    width: 80%;
+    margin-top: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    background: #ff9999;
+    color: red;
+    padding: 10px;
+    border : 1px solid red;
+
+}
+
+.info{
+    
+    width: 80%;
+    margin-top: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    background: #99ff99;
+    color: green;
+    padding: 10px;
+    border : 1px solid green;
+
+}
+#connec h3{
+    text-align: center;
+}
+
+#connec form{
+    display: block;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+label{
+    width: 150px;
+    display: block;
+    float: left;
+
+}
+.det{
+    display:block;
+    width: 100px;
+    float: left;
+}
+
+hr{
+    width: 50%;
+    border: 0;
+    color: black;
+    background-color: gray;
+
+    height: 1px;
+}

@@ -1,7 +1,7 @@
 $(document).ready(function() {
     open();
-    window.onresize = canovas;
-    window.onload = canovas;
+//    window.onresize = canovas;
+//    window.onload = canovas;
 
     var tabCOL = new Array();
     tabCOL[0] = "";
@@ -76,7 +76,7 @@ $(document).ready(function() {
         "top": "50%"
     });
 
-    $('#Ico1,#Ico2,#Ico3,#Ico4,#imache11,#imache22,#imache33,#imache44,.googleback,.linkedBack,.facebookback,#contain1,#contain2,label,#formations,#atouts').hide();
+    $('#Ico1,#Ico2,#Ico3,#Ico4,#imache11,#imache22,#imache33,#imache44,#imaj11,#imaj22,#imaj33,#imaj44,.googleback,.linkedBack,.facebookback,#contain1,#contain2,#checkbox,#formations,#atouts').hide();
 
     $("#Circ1").hover(function() {
         link = "Me & Myself";
@@ -157,11 +157,11 @@ $(document).ready(function() {
                 "top": "+100%"});
             $(".label2").css({
                 "top": "-100%"});
-            $(".label2").html("<a id='pwet' onclick='return createTimedLink(this, AniTrans, 900);' href='?action=" + act + "'>" + link + "</a>");
+            $(".label2").html("<a id='pwet' onclick='return createTimedLink(AniTrans, 900);' href='?action=" + act + "'>" + link + "</a>");
         } else {
             $(".label1").css({
                 "top": "+0%"});
-            $(".label1").html("<a id='pwet' onclick='return createTimedLink(this, AniTrans, 900);' href='?action=" + act + "'>" + link + "</a>");
+            $(".label1").html("<a id='pwet' onclick='return createTimedLink(AniTrans, 900);' href='?action=" + act + "'>" + link + "</a>");
             $(".label2").css({
                 "top": "-0%"});
         }
@@ -380,17 +380,68 @@ $(document).ready(function() {
         });
 
     }
-$("a").click(function(){
-    console.log("plop");
-    setTimeout(function(){window.location.href='test.de/#thankyou';}, 10000); 
+    var desti ="";
+$(".but1").click(function(){
+    desti="?action=1";
+    transi(desti);
 })
-//fin onload
+$(".but2").click(function(){
+    desti="?action=2";
+    transi(desti);
+})
+$(".but3").click(function(){
+    desti="?action=3";
+    transi(desti);
+})
+$(".but4").click(function(){
+    desti="?action=4";
+    transi(desti);
+})
+$("#imaj1").hover(function(){
+    $("#imaj1").fadeOut();
+    $("#imaj11").fadeIn();
+},function(){
+    $("#imaj11").fadeOut();
+    $("#imaj1").fadeIn();
+})
+$("#imaj2").hover(function(){
+    $("#imaj2").fadeOut();
+    $("#imaj22").fadeIn();
+},function(){
+    $("#imaj22").fadeOut();
+    $("#imaj2").fadeIn();
+})
+$("#imaj3").hover(function(){
+    $("#imaj3").fadeOut();
+    $("#imaj33").fadeIn();
+},function(){
+    $("#imaj33").fadeOut();
+    $("#imaj3").fadeIn();
+})
+$("#imaj4").hover(function(){
+    $("#imaj4").fadeOut();
+    $("#imaj44").fadeIn();
+},function(){
+    $("#imaj44").fadeOut();
+    $("#imaj4").fadeIn();
+})
+
+function transi(dest){
+    $('#trans').toggleClass("animat2", false);
+    $('#trans').addClass('animat');
+    if (typeof(dest) !== "undefined" && dest !== "") {
+
+        setTimeout(function() {
+            window.location.href = dest;
+        }, 1200);
+    }
+}
 });
 
-function createTimedLink(element, callback, timeout) {
+function createTimedLink(callback, timeout) {
 
     setTimeout(function() {
-        callback(element);
+        callback();
     }, timeout);
     return false;
 }
@@ -411,26 +462,3 @@ function AniTrans() {
 
 }
 
-function createTimedLink2(element, callback, timeout) {
-
-    setTimeout(function() {
-        callback(element);
-    }, timeout);
-    return false;
-}
-
-function AniTrans() {
-
-    $('#trans').toggleClass("animat2", false);
-    $('#trans').addClass('animat');
-
-    var dest = $('#pwet').attr('href');
-    if (typeof(dest) !== "undefined" && dest !== "") {
-
-        setTimeout(function() {
-            window.location.href = dest;
-        }, 1200);
-    }
-    console.log(dest);
-
-}

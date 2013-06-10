@@ -1,0 +1,15 @@
+<div id="wrapper">
+{menuAdmin}
+    <h3 class='toggle3'>Projets</h3>
+    <div class='toggle4'>
+        <?php
+        foreach ($this->getDatavue("projectList") as $proj)
+        {
+            echo $proj->getName()." - <a href='/MVC/Project/update/".$proj->getId()."'>modifier</a><br />";   
+        }
+//        echo"<br/>";        
+        ?>
+        
+       
+    </div>
+</div>

@@ -1,0 +1,19 @@
+
+<div id="wrapper">
+{menuAdmin}
+
+    <h3 class='toggle1'>Liste utilisateurs</h3>
+    <div class='toggle2'>
+        <?php
+        foreach ($this->getDatavue("userList") as $users)
+        {
+            echo "<span>" . $users->getPrenom() . " " . $users->getNom() . " - </span>";
+            echo "<a href='/MVC/User/details/" . $users->getIdentifiant() . "'>Détails</a><br/>";
+            //detail
+            echo "<br />";
+        }
+        ?>
+        </div>
+
+
+</div>

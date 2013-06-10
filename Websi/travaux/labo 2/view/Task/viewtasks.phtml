@@ -1,0 +1,20 @@
+<div id="wrapper">
+    {menuAdmin}
+    <h3 class='toggle3'>Tâches</h3>
+    <div class='toggle4'>
+        <ol>
+
+            <?php
+            foreach ($this->getDatavue("taskList") as $task)
+            {
+                echo "<li>".$task->getTache() . " - <a href='/MVC/Task/details/" . $task->getId() . "'>Détails</a><br/></li>";
+             
+            }
+            ?>
+        </ol>
+
+
+    </div>
+</div>
+
+

@@ -1,0 +1,17 @@
+<div id="wrapper">
+{menuAdmin}
+<?php
+
+echo "<h3>Détails</h3>";
+
+
+
+echo "<span>Login : </span><span>" . $this->getDatavue("det")->getIdentifiant() . "</span><br/>";
+echo "<span>Prenom : </span><span>" . $this->getDatavue("det")->getPrenom() . "</span><br/>";
+echo "<span>Nom : </span><span>" . $this->getDatavue("det")->getNom() . "</span><br/>";
+echo "<span>E-mail : </span><span>" . $this->getDatavue("det")->getEmail() . "</span><br/>";
+echo "<span>Password : </span><span>" . $this->getDatavue("det")->getPassword() . "</span><br/><br/>";
+echo "<span>Groupe : <span><span>" . $this->getDatavue("det")->getGroup()->getName() . "</span><br/><br/>";
+echo "<a href='/MVC/User/update/" . $this->getDatavue("det")->getIdentifiant() . "'>Modifier</a>";
+?>
+</div>

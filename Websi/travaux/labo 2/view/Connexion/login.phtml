@@ -1,0 +1,15 @@
+
+<div id="contain">
+    <div id="connec">
+        <h3>Connexion</h3>
+        <hr />
+        <br />
+        <?php echo Form_vue::getHTML($this->getDatavue("form")); ?>
+        <?php
+        if (isset($this->dataVue["error"]))
+        {
+           echo "<div class='error'>".$this->getDatavue("error")."</div>"; 
+        }
+        ?>
+    </div>
+</div>

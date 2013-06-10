@@ -1,0 +1,21 @@
+<div id="wrapper">
+{menuAdmin}
+<?php
+
+echo "<h3>Détails</h3>";
+
+
+
+echo "<p>Tâche : </span><span>" . $this->getDatavue("det")->getTache() . "</p>";
+?>
+<h3>Historique:</h3>
+<ol>
+<?php
+foreach($this->getDatavue("hist") as $histElement)
+{
+   echo "<li>".$histElement->getDate().": ".$histElement->getDescription()."</li>"; 
+}
+echo "<a href='/MVC/Task/update/" . $this->getDatavue("det")->getId() . "'>Modifier</a>";
+?>
+</ol>
+</div>

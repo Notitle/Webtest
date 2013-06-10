@@ -1,0 +1,24 @@
+<div id="wrapper">
+    {menuAdmin}
+    <h3>Ajouter une catégorie</h3>
+
+    <?php
+    echo Form_vue::getHTML($this->getDatavue("form"));
+    if (isset($this->dataVue["info"]))
+    {
+        echo "<div class='info'>" . $this->dataVue["info"] . "</div>";
+    }
+    if (isset($this->dataVue["error"]))
+    {
+        echo "<div class='error'>" . $this->dataVue["error"] . "</div>";
+    }
+    ?>
+
+    <h3>Liste des catégories</h3>
+    <?php
+    foreach ($this->dataVue["catList"] as $cat)
+    {
+        echo "<p>" . $cat->getName() . " - <a href='/MVC/Category/update/" . $cat->getId() . "'>Modifier</a></p>";
+    }
+    ?>
+</div>

@@ -1,0 +1,15 @@
+<div id="wrapper">
+{menuAdmin}
+    <h3 class='toggle3'>Phases</h3>
+    <div class='toggle4'>
+        <?php
+        foreach ($this->getDatavue("phaseList") as $phas)
+        {
+            echo $phas->getName()." - <a href='/MVC/Phase/update/".$phas->getId()."'>modifier</a><br />";   
+        }
+//        echo"<br/>";        
+        ?>
+        
+       
+    </div>
+</div>

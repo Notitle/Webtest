@@ -1,0 +1,18 @@
+<nav>
+    <div id="menu">
+        <?php
+        switch ($this->getDatavue('currUser')->getGroup()->getId())
+        {
+            case 1:
+                echo "{menuUser}";
+                break;
+            case 2:
+                echo "{menuResp}";
+                break;
+            case 3:
+                echo "{menuAdmin}";
+                break;
+        }
+        ?>
+    </div>
+</nav>

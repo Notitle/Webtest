@@ -1,0 +1,17 @@
+
+<div id="wrapper">
+    {menuAdmin}
+
+
+    <?php
+    echo Form_vue::getHTML($this->getDatavue("form"));
+    if (isset($this->dataVue["info"]))
+    {
+        echo "<div class='info'>" . $this->dataVue["info"] . "</div>";
+    }
+    if (isset($this->dataVue["error"]))
+    {
+        echo "<div class='error'>" . $this->dataVue["error"] . "</div>";
+    }
+    ?>
+</div>

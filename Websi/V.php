@@ -9,15 +9,15 @@ function head() {
     echo "<meta name='description' content='Site personnel de Leboutte Jerome. Developpeur Web junior.'/>";
     echo "<meta name='author' content='Leboutte Jerome' />";
     echo "<meta name='Googlebot' content='nosnippet,noarchive, notranslate' />";
-    echo "<meta name='viewport' content='width=device-width'>"; //This tells the browser to assume that the page is as wide as the device
+    echo "<meta name='viewport' content='width=device-width'>";
     echo "<meta name='keyword' content='Leboutte, leboutte, Jerome, jerome, Jérôme, jérôme, site personnel, site perso, STE, STE-formations, Developpeur, Developppeur Web, développeur web, web developer' />";
     echo "<meta name='viewport' content='initial-scale=1.0, maximum-scale=1.0, user-scalable=no' />";
 
-    echo "<meta property='og:title' content='???' />";
+    echo "<meta property='og:title' content='Datamaze' />";
     echo "<meta property='og:type' content='website' />";
-    echo "<meta property='og:url' content='???' />";
-    echo "<meta property='og:image' content='http://???/images/???' />";
-    echo "<meta property='og:site_name' content='???' />";
+    echo "<meta property='og:url' content='http://www.datamaze.be/' />";
+    echo "<meta property='og:image' content='http://www.datamaze.be/img/???' />";
+    echo "<meta property='og:site_name' content='Datamaze' />";
     echo "<meta property='fb:admins' content='598636367' />";
 
     echo "<link rel='icon' href='http://???/images/favicon.ico' type='image/x-icon' />";
@@ -54,7 +54,7 @@ function create() {
     for ($i = 1; $i < 5; $i++) {
         echo "<div id=Circ" . $i . ">";
         echo "<img class='icones' id='imache" . $i . "' src='img/IM" . $i . ".png' alt='pwet'/>";
-        echo "<a onclick='return createTimedLink(this, AniTrans, 900);' href='?action=" . $i . "'><img class='icones' id='imache" . $i . "" . $i . "' src='img/IM" . $i . "" . $i . ".png' alt='pwet' /></a>";
+        echo "<a onclick='return createTimedLink(AniTrans, 900);' href='?action=" . $i . "'><img class='icones' id='imache" . $i . "" . $i . "' src='img/IM" . $i . "" . $i . ".png' alt='pwet' /></a>";
         echo "<div id=Ico" . $i . ">";
         echo "</div>";
         echo "</div>";
@@ -86,18 +86,15 @@ function introduce() {
 
 function menu2() {
     echo "<div id='menu2'>";
-    echo "<a id='pwet' onclick='return createTimedLink2(this, AniTrans, 900);' href='?action=3'>plop</a><br/>";
-    echo "<a id='pwet' onclick='return createTimedLink2(this, AniTrans, 900);' href='?action=2'>plop</a><br/>";
-    
-    echo "<a onclick='return createTimedLink2(this, AniTrans, 900);' href='?action=3'><img src='img/IM3.png' alt='Travaux'/></a><br/><br/>";
-    echo "<a onclick='return createTimedLink2(this, AniTrans, 900);' href='?action=4'><img src='img/IM4.png' alt='CV'/></a>";
+    echo "<a class='but1' onclick='return createTimedLink(AniTrans, 900);' href='?action=1'><img id='imaj1' src='img/IM1.png' alt='Me'/><img id='imaj11' src='img/IM11.png' alt='Me'/></a><br/><br/><br/><br/>";
+    echo "<a class='but2' onclick='return createTimedLink(AniTrans, 900);' href='?action=2'><img id='imaj2' src='img/IM2.png' alt='Contact'/><img id='imaj22' src='img/IM22.png' alt='Contact'/></a><br/><br/><br/><br/>";
+    echo "<a class='but3' onclick='return createTimedLink(AniTrans, 900);' href='?action=3'><img id='imaj3' src='img/IM3.png' alt='Travaux'/><img id='imaj33' src='img/IM33.png' alt='Travaux'/></a><br/><br/><br/><br/>";
+    echo "<a class='but4' onclick='return createTimedLink(AniTrans, 900);' href='?action=4'><img id='imaj4' src='img/IM4.png' alt='CV'/><img id='imaj44' src='img/IM44.png' alt='CV'/></a>";
     echo "</div>";
-    
-    echo "<a onclick='return createTimedLink2(this, AniTrans, 900);' href='?action=2'><img src='img/IM2.png' alt='Contact'/></a><br/><br/>";
 }
 
 function CV() {
-    echo "<label><input type='checkbox'>Trier les valeurs</label>";
+    echo "<label id='checkbox'><input type='checkbox'>Trier les valeurs</label>";
     echo "<div id='contain1'>";
     echo "<h3 id='langTit'>Languages</h3>";
 
@@ -157,7 +154,7 @@ Diplôme obtenu. Promotion Sociale, Jemeppe.</p>
 
 function Atouts() {
     echo "<div id='atouts'>";
-   
+
     echo " <h3 id='atts'>Atouts</h3><br/><br/>
         <p>Rigueur Respect des échéances/ délais<br/>
         Expérience avec le contact client <br/>
@@ -170,7 +167,36 @@ function Atouts() {
         <h3 id='langs'>Langues</h3>  <br/>  
             <p>Anglais ~ Bon niveau (ecrit / parlé)<br/>
             Français ~ Langue maternelle</p>";
+
+    echo "</div>";
+}
+
+function contact($nom, $prenom, $mail, $contenu, $boom) {
     
+    $erreur[0] = "";
+    $erreur[1] = "<span id='erreur'>Champs manquant</span>";
+    $erreur[2] = "<span id='erreur'>Adresse mail incorrecte</span>";
+    $erreur[3] = "<span id='victory'>Mail envoyé, merci.</span>";
+    
+    echo "<div id='contact'>";
+    echo "<h3 id='atts'>Contact</h3><br/><br/><br/>";
+    echo "<form method=post action='?action=5'>";
+    echo "<label for='nom'>Nom :</label><input type='text' name='nom' id='nom' value='" . $nom . "'/><br />";
+    echo "<label for='prenom'>Prénom :</label><input type='text' name='prenom' id='prenom' value='" . $prenom . "'/><br />";
+    echo "<label for='mail'>Adresse mail :</label><input type='mail' name='mail' id='mail' value='" . $mail . "'/><br />";
+    echo "<label for='contenu'>Contenu :</label><textarea id='contenu' name='contenu' rows='4' cols='16'>" . $contenu . "</textarea><br />";
+    echo "<input type='submit' value='Envoyer'>";
+    echo "</form>";
+    
+    echo $erreur[$boom];
+    echo "</div>";
+    
+    
+}
+
+function travaux() {
+    echo "<div id='travaux'>";
+    echo " <h3 id='atts'>Travaux</h3>";
     echo "</div>";
 }
 ?>
