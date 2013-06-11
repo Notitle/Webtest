@@ -76,7 +76,7 @@ $(document).ready(function() {
         "top": "50%"
     });
 
-    $('#Ico1,#Ico2,#Ico3,#Ico4,#imache11,#imache22,#imache33,#imache44,#imaj11,#imaj22,#imaj33,#imaj44,.googleback,.linkedBack,.facebookback,#contain1,#contain2,#checkbox,#formations,#atouts').hide();
+    $('#Ico1,#Ico2,#Ico3,#Ico4,#imache11,#imache22,#imache33,#imache44,#imaj11,#imaj22,#imaj33,#imaj44,#contain1,#contain2,#checkbox,#formations,#atouts').hide();
 
     $("#Circ1").hover(function() {
         link = "Me & Myself";
@@ -130,24 +130,6 @@ $(document).ready(function() {
         $("#Ico4").fadeOut();
         $("#imache44").fadeOut();
         $("#imache4").fadeIn();
-    });
-    $(".google").hover(function() {
-        $(".googleback").fadeIn();
-
-    }, function() {
-        $(".googleback").fadeOut();
-    });
-    $(".linkedin").hover(function() {
-        $(".linkedback").fadeIn();
-
-    }, function() {
-        $(".linkedback").fadeOut();
-    });
-    $(".google").hover(function() {
-        $(".googleback").fadeIn();
-
-    }, function() {
-        $(".googleback").fadeOut();
     });
 
     function Switch() {
@@ -331,14 +313,29 @@ $(document).ready(function() {
             var o=1;
             var boxiCOLOR = 'rgba(' + (Math.floor(Math.random() * 256)) + ',' + (Math.floor(Math.random() * 256)) + ',' + (Math.floor(Math.random() * 256)) + ',' + o + ')';
             //recuperer la valeur de chaque barre pour etablir une opacite en fct de la taille et non juste décroissante.
+            
             d3.selectAll('.bar').each(function(d,i) { 
+               
+                d3.select(this).style("fill", boxiCOLOR); 
                 
-                o=o-0.06;
-                d3.select(this).style("fill", boxiCOLOR).style("opacity",o); 
+                if (d3.select(this).attr('height')>230){
+                    d3.select(this).style("opacity",1);
+                }
+                if (d3.select(this).attr('height')>200 && d3.select(this).attr('height')<230){
+                    d3.select(this).style("opacity",0.8);
+                }
+                if (d3.select(this).attr('height')>100 && d3.select(this).attr('height')<200){
+                    d3.select(this).style("opacity",0.6);
+                }
+                if (d3.select(this).attr('height')>70 && d3.select(this).attr('height')<100){
+                    d3.select(this).style("opacity",0.4);
+                }
+                if (d3.select(this).attr('height')>0 && d3.select(this).attr('height')<70){
+                    d3.select(this).style("opacity",0.2);
+                }
                 
             });
-            
-//            d3.select(".bar").style("fill", "red");
+
 
             var sortTimeout = setTimeout(function() {
                 d3.select("input").property("unchecked", true).each(change);
@@ -436,6 +433,41 @@ function transi(dest){
         }, 1200);
     }
 }
+
+$('#Parallax').mousemove(
+                
+		function(e){
+                
+			/* Work out mouse position */
+			var offset = $(this).offset();
+			var xPos = e.pageX - offset.left;
+			var yPos = e.pageY - offset.top;
+
+			/* Get percentage positions */
+			var mouseXPercent = Math.round(xPos / $(this).width() * 100);
+			var mouseYPercent = Math.round(yPos / $(this).height() * 100);
+
+			/* Position Each Layer */
+			$(this).children('img').each(
+				function(){
+					var diffX = $('#Parallax').width() - $(this).width();
+					var diffY = $('#Parallax').height() - $(this).height();
+
+					var myX = diffX * (mouseXPercent / 100); //) / 100) / 2;
+					var myY = diffY * (mouseYPercent / 100);
+
+					var cssObj = {
+						'left': myX + 'px',
+						'top': myY + 'px'
+					}
+					//$(this).css(cssObj);
+					$(this).animate({left: myX, top: myY},{duration: 50, queue: false, easing: 'linear'});
+
+				}
+			);
+
+		}
+	);
 });
 
 function createTimedLink(callback, timeout) {
@@ -459,6 +491,15 @@ function AniTrans() {
         }, 1200);
     }
     console.log(dest);
+
+}
+
+window.onclick=canidraw;
+
+function canidraw(){
+  var x = event.clientX;
+  var y = event.clientY;
+
 
 }
 

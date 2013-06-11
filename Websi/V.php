@@ -28,11 +28,9 @@ function head() {
     echo "</head>";
     echo "<body>";
     echo "<div id='trans'></div>";
-    echo "<img class='googleback' src='img/google.png' alt='googleBack' title='googleback'/>";
+    parallax();
     echo "<a href='https://plus.google.com/u/0/109034735526845072800'><img class='google' src='img/google+.png' alt='google+' title='google+'/></a>";
-    echo "<img class='facebookback' src='img/facebook.png' alt='facebookback' title='facebookback'/>";
     echo "<a href='https://www.facebook.com/Broshambo'><img class='facebook' src='img/facebook+.png' alt='facebook' title='facebook'/></a>";
-    echo "<img class='linkedBack' src='img/linked.png' alt='linkedBack' title='linkedBack'/>";
     echo "<a href='http://www.linkedin.com/pub/jerome-leboutte/66/6b5/26'><img class='linkedin' src='img/linked+.png' alt='linkedin' title='linkedin'/></a>";
 }
 
@@ -43,6 +41,18 @@ function foot() {
     echo "</footer>";
     echo "</body>";
     echo "</html>";
+}
+
+function parallax() {
+    ?>
+    <a href='?action=0'>
+    <div id="Parallax">
+        <img class="bot" src="img/para3.png" />
+        <img class="mid" src="img/para2.png" />
+        <img class="top" src="img/para1.png" />
+    </div>
+        </a>
+    <?php
 }
 
 function menu() {
@@ -74,22 +84,29 @@ function testheader() {
     echo "</canvas>";
 }
 
-function introduce() {
-    echo "<div id='pres'>";
-    echo "<h3>Présentation</h3>";
-    echo "<p>Bonjour et bienvenu, visiteur anonyme, sur betaweb.com.</p>";
-    echo "<p>Vous pouvez trouver ici mes travaux (achevés ou en construction), mon CV disponnible au téléchargement et de quoi me contacter. Je suis également disponible via LinkedIN/Facebook/Google+.</p>";
-    echo "<p>Je m'appelle Jerome Leboutte. Développeur Web Junior, fraîchement formé chez <span class='lien'><a href='http://www.steformations.be/'>STE-Formations</a></span>.</p>";
-    echo "<p>Anciennement étudiant dans les sciences à l'ISIL et diplômé en tant qu'assistant en pharmacie, je me suis redirigé vers les internets et plus précisement dans la programmation par passion.<br/> le reste est a completer</p>";
+function menu2() {
+    echo "<div id='menu2'>";
+    echo "<a class='but1' onclick='return createTimedLink(AniTrans, 900);' href='?action=1'><img id='imaj1' title='Me & myslef' src='img/IM1.png' alt='Me'/><img title='Me & Myself' id='imaj11' src='img/IM11.png' alt='Me'/></a><br/><br/><br/><br/>";
+    echo "<a class='but2' onclick='return createTimedLink(AniTrans, 900);' href='?action=2'><img id='imaj2' title='Contact' src='img/IM2.png' alt='Contact'/><img title='Contact' id='imaj22' src='img/IM22.png' alt='Contact'/></a><br/><br/><br/><br/>";
+    echo "<a class='but3' onclick='return createTimedLink(AniTrans, 900);' href='?action=3'><img id='imaj3' title='Travaux' src='img/IM3.png' alt='Travaux'/><img title='Travaux' id='imaj33' src='img/IM33.png' alt='Travaux'/></a><br/><br/><br/><br/>";
+    echo "<a class='but4' onclick='return createTimedLink(AniTrans, 900);' href='?action=4'><img id='imaj4' title='CV' src='img/IM4.png' alt='CV'/><img title='CV' id='imaj44' src='img/IM44.png' alt='CV'/></a>";
     echo "</div>";
 }
 
-function menu2() {
-    echo "<div id='menu2'>";
-    echo "<a class='but1' onclick='return createTimedLink(AniTrans, 900);' href='?action=1'><img id='imaj1' src='img/IM1.png' alt='Me'/><img id='imaj11' src='img/IM11.png' alt='Me'/></a><br/><br/><br/><br/>";
-    echo "<a class='but2' onclick='return createTimedLink(AniTrans, 900);' href='?action=2'><img id='imaj2' src='img/IM2.png' alt='Contact'/><img id='imaj22' src='img/IM22.png' alt='Contact'/></a><br/><br/><br/><br/>";
-    echo "<a class='but3' onclick='return createTimedLink(AniTrans, 900);' href='?action=3'><img id='imaj3' src='img/IM3.png' alt='Travaux'/><img id='imaj33' src='img/IM33.png' alt='Travaux'/></a><br/><br/><br/><br/>";
-    echo "<a class='but4' onclick='return createTimedLink(AniTrans, 900);' href='?action=4'><img id='imaj4' src='img/IM4.png' alt='CV'/><img id='imaj44' src='img/IM44.png' alt='CV'/></a>";
+function introduce() {
+    echo "<h3 id='prestitre'>Présentation</h3>";
+    echo "<div id='pres'>";
+    echo "<div id='presgauche'>";
+    echo "<p>Bonjour et bienvenu, visiteur anonyme, sur betaweb.com.</p>";
+    echo "<p>Vous pouvez trouver ici mes travaux (achevés ou en construction), mon CV disponnible au téléchargement et de quoi me contacter. Je suis également disponible via LinkedIN/Facebook/Google+.</p>";
+    echo "</div>";
+    echo "<div id='presmid'>";
+    echo "<p>Je m'appelle Jerome Leboutte. Développeur Web Junior, fraîchement formé chez <span class='lien'><a href='http://www.steformations.be/'>STE-Formations</a></span>.</p>";
+    echo "<p>Anciennement étudiant dans les sciences à l'ISIL et diplômé en tant qu'assistant en pharmacie, je me suis redirigé vers les internets et plus précisement dans la programmation par passion.<br/> le reste est a completer</p>";
+    echo "</div>";
+    echo "<div id='presdroit'>";
+    echo "<img src='' title='hi there'/>";
+    echo "</div>";
     echo "</div>";
 }
 
@@ -132,23 +149,26 @@ function Formations() {
     echo "<div id='formations'>";
     echo "<h3 id='langTit'>Formations</h3>";
     echo "<div id='objecti'>
-        <p>2013 ~ en cour Formation en développement web STE Formations, Université de Liège.<br/>
+        <p><span class='formnom'>2013 ~ en cour.</span> <span class='formtitre'>Formation en développement web STE Formations, Université de Liège.</span><br/>
     Apprentissage et mise en pratique des langages de programmation orientés web.</p>
     
-    <p>Juin ~ Décembre 2012 E-learning<br/>
+    <p><span class='formnom'>Juin ~ Décembre 2012.</span> <span class='formtitre'>E-learning</span><br/>
     Référencement et CSS. Technofutur-TIC.</p>
     
-    <p>Avril ~ Juin 2012 Initiation à la programmation
-STE Formations, Université de Liège.<br/>
-Introduction aux différents langages de programmation (Java, sql, html, php...)</p>
+    <p><span class='formnom'>Avril ~ Juin 2012.</span> <span class='formtitre'>Initiation à la programmation
+    STE Formations, Université de Liège.</span><br/>
+    Introduction aux différents langages de programmation (Java, sql, html, php...)</p>
 
-<p>2010 ~ 2012 Recherche d’emploi et réorientation professionnelle en informatique
-Autoformation</p>
-<p>2008 ~ 2010 Formation d’assistant pharmaceutico-technique</p>
-Diplôme obtenu. Promotion Sociale, Jemeppe.</p>
-<p>2005 ~ 2008 Biotechnologie à l’ISIL, Liège</p>
-<p>2002 ~ 2005 CESS en biotechnologie
-École secondaire IPEA La Reid.</p></div>";
+    <p><span class='formnom'>2010 ~ 2012</span> <span class='formtitre'>Recherche d’emploi et réorientation professionnelle en informatique</span><br/>
+    Autoformation</p>
+    
+    <p><span class='formnom'>2008 ~ 2010</span> <span class='formtitre'>Formation d’assistant pharmaceutico-technique</span></br>
+    Diplôme obtenu. Promotion Sociale, Jemeppe.</p>
+    
+    <p><span class='formnom'>2005 ~ 2008</span> <span class='formtitre'>Biotechnologie à l’ISIL, Liège</span></p>
+    
+    <p><span class='formnom'>2002 ~ 2005</span> <span class='formtitre'>CESS en biotechnologie</span>
+    École secondaire IPEA La Reid.</p></div>";
     echo "</div>";
 }
 
@@ -172,12 +192,13 @@ function Atouts() {
 }
 
 function contact($nom, $prenom, $mail, $contenu, $boom) {
-    
+
     $erreur[0] = "";
     $erreur[1] = "<span id='erreur'>Champs manquant</span>";
     $erreur[2] = "<span id='erreur'>Adresse mail incorrecte</span>";
-    $erreur[3] = "<span id='victory'>Mail envoyé, merci.</span>";
-    
+    $erreur[3] = "<span id='erreur'>Captcha incorrecte</span>";
+    $erreur[4] = "<span id='victory'>Mail envoyé, merci.</span>";
+
     echo "<div id='contact'>";
     echo "<h3 id='atts'>Contact</h3><br/><br/><br/>";
     echo "<form method=post action='?action=5'>";
@@ -185,28 +206,56 @@ function contact($nom, $prenom, $mail, $contenu, $boom) {
     echo "<label for='prenom'>Prénom :</label><input type='text' name='prenom' id='prenom' value='" . $prenom . "'/><br />";
     echo "<label for='mail'>Adresse mail :</label><input type='mail' name='mail' id='mail' value='" . $mail . "'/><br />";
     echo "<label for='contenu'>Contenu :</label><textarea id='contenu' name='contenu' rows='4' cols='16'>" . $contenu . "</textarea><br />";
+    ?>
+    <label for='captcha'>Code :</label><input id='captcha' type="text" name="wsp_code"/><br/>
+ 
+    <div>
+        <script type="text/javascript" src="http://webspamprotect.com/captcha/5746/"></script>
+        <noscript>This form protected by <a href="http://webspamprotect.com" target="_blank" title="Web form spam protection">WebSpamProtect</a>. JavaScript must be enabled in your browser to view this image.
+        </noscript>
+    </div>
+    <br/>
+
+    <?php
     echo "<input type='submit' value='Envoyer'>";
     echo "</form>";
-    
+
     echo $erreur[$boom];
     echo "</div>";
-    
-    
 }
-function view_add_comment($id){
-    echo "<div id='ajoudroit'>";
+
+function view_add_comment($id,$boom) {
+    
+    $erreur[0] = "";
+    $erreur[1] = "<span id='erreur2'>Champs manquant</span>";
+    $erreur[2] = "<span id='erreur2'>Adresse mail incorrecte</span>";
+    $erreur[3] = "<span id='erreur2'>Captcha incorrecte</span>";
+    $erreur[4] = "<span id='victory2'>Commentaire ajouté, merci.</span>";
+    
+    echo "<div id='ajoudroit' class='tra'>";
     echo "<span id='spacom'>Ajouter un commentaire</span><br/><br/>";
     echo "<form method=post action='?action=6'>";
     echo "<label for='nom'>Nom :</label><input type='text' name='nom' id='nom' value=''/><br />";
     echo "<label for='mail'>Adresse mail :</label><input type='mail' name='mail' id='mail' value=''/><br />";
     echo "<label for='contenu'>Contenu :</label><textarea id='contenu' name='contenu' rows='4' cols='16'></textarea><br />";
     echo "<input type='hidden' name='id' value='" . $id . "'>";
-    echo "<input type='submit' value='Envoyer'>";
+    ?>
+     <label for='captcha'>Code :</label><input id='captcha' type="text" name="wsp_code"/><br/>
+ 
+    <div>
+        <script type="text/javascript" src="http://webspamprotect.com/captcha/5746/"></script>
+        <noscript>This form protected by <a href="http://webspamprotect.com" target="_blank" title="Web form spam protection">WebSpamProtect</a>. JavaScript must be enabled in your browser to view this image.
+        </noscript>
+    </div>
+    <br/>
+    <?php
+    echo "<input type='submit' value='Envoyer'><br/><br/>";
+        echo $erreur[$boom];
     echo "</form>";
-    
+
     echo "</div>";
+
     echo "<br/>";
-    
 }
 ?>
 

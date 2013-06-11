@@ -31,7 +31,7 @@ switch ($action) {
         break;
     case 3:
         menu2();
-        list_travaux();
+        list_travaux($boom=0);
         break;
     case 4:
         CV();
@@ -45,7 +45,7 @@ switch ($action) {
     case 6:
         menu2();
         add_comment($_POST['nom'],$_POST['mail'],$_POST['contenu'],$_POST['id']);
-        list_travaux();
+
         break;
             
 };
