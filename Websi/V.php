@@ -97,7 +97,7 @@ function introduce() {
     echo "<h3 id='prestitre'>Présentation</h3>";
     echo "<div id='pres'>";
     echo "<div id='presgauche'>";
-    echo "<p>Bonjour et bienvenu, visiteur anonyme, sur betaweb.com.</p>";
+    echo "<p>Bonjour et bienvenue, visiteur anonyme, sur betaweb.com.</p>";
     echo "<p>Vous pouvez trouver ici mes travaux (achevés ou en construction), mon CV disponnible au téléchargement et de quoi me contacter. Je suis également disponible via LinkedIN/Facebook/Google+.</p>";
     echo "</div>";
     echo "<div id='presmid'>";
