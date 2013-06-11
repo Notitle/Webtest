@@ -5,7 +5,7 @@ function head() {
     echo "<html lang='fr'>";
     echo "<head>";
     echo "<meta charset='UTF-8' />";
-    echo "<title>SUPAWEB - Leboutte Jerome</title>";
+    echo "<title>DataMaze - Leboutte Jerome</title>";
     echo "<meta name='description' content='Site personnel de Leboutte Jerome. Developpeur Web junior.'/>";
     echo "<meta name='author' content='Leboutte Jerome' />";
     echo "<meta name='Googlebot' content='nosnippet,noarchive, notranslate' />";

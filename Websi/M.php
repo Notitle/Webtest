@@ -89,11 +89,11 @@ function view_comment($nom) {
         echo "<div id='commid' class='tra'>";
         echo "<span id='spacom'>Commentaires : </span><br/><br/>";
         while ($row = $requete->fetch(PDO::FETCH_OBJ)) {
-            echo "<span>De :" . $row->com_aut . "</span>";
-            echo "<span> ~ " . $row->com_mail . "</span><br/>";
+            echo "<span>De :" . $row->com_aut . "</span><br/><br/>";
             echo "<span>" . $row->com_text . "</span><br/><br/>";
         }
         echo "</div>";
+        
     } catch (PDOException $e) {
         echo $e->getMessage();
     }
@@ -103,7 +103,7 @@ function add_comment($nom, $mail, $contenu, $id) {
     include_once("script/wsp_captcha.php");
 
     if ((isset($nom) && $nom !== "") && (isset($contenu) && $contenu !== "")) {
-        if (preg_match("/^[a-z\'0-9]+([._-][a-z\'0-9]+)*@([a-z0-9]+([._-][a-z0-9]+))+$/", $mail) === 0) {
+        if ($mail !== "" && preg_match("/^[a-z\'0-9]+([._-][a-z\'0-9]+)*@([a-z0-9]+([._-][a-z0-9]+))+$/", $mail) === 0) {
             $boom = 2;
             list_travaux($boom);
         } else if (WSP_CheckImageCode() != "OK") {
@@ -127,6 +127,10 @@ function add_comment($nom, $mail, $contenu, $id) {
             } catch (PDOException $e) {
                 echo $e->getMessage();
             }
+            $destinataire="jerome.leboutte@gmail.com";
+            $objets="nouveau commentaire sur le travail : " . $idi;
+            $msg=$contenui;
+            mail($destinataire, $objets, $msg);
         }
     } else {
         $boom = 1;
